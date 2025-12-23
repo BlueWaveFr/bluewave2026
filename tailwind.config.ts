@@ -23,19 +23,19 @@ const config: Config = {
           900: '#1a1a1f',
           950: '#0d0d0f',
         },
-        // Primary accent - Electric blue/purple
+        // Primary accent - Ocean Blue (matching logo)
         accent: {
-          50: '#f0f0ff',
-          100: '#e0e0ff',
-          200: '#c7c7fe',
-          300: '#a3a3fc',
-          400: '#8b8bf9',
-          500: '#6366f1',
-          600: '#5558e3',
-          700: '#4547c9',
-          800: '#3a3ba3',
-          900: '#333481',
-          950: '#1e1e4b',
+          50: '#e6f4fa',
+          100: '#ccebf7',
+          200: '#99d6ef',
+          300: '#66c2e7',
+          400: '#33addf',
+          500: '#0099d6',
+          600: '#007ab0',
+          700: '#005c8a',
+          800: '#1e5a7e',
+          900: '#153d54',
+          950: '#0a1f2a',
         },
         // Secondary - Cyan/Teal for highlights
         cyan: {
@@ -103,8 +103,8 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6)' },
+          '0%': { boxShadow: '0 0 20px rgba(0, 153, 214, 0.3)' },
+          '100%': { boxShadow: '0 0 40px rgba(0, 153, 214, 0.6)' },
         },
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
@@ -119,8 +119,8 @@ const config: Config = {
           '100%': { backgroundPosition: '200% 0' },
         },
         borderGlow: {
-          '0%, 100%': { borderColor: 'rgba(99, 102, 241, 0.3)' },
-          '50%': { borderColor: 'rgba(99, 102, 241, 0.8)' },
+          '0%, 100%': { borderColor: 'rgba(0, 153, 214, 0.3)' },
+          '50%': { borderColor: 'rgba(0, 153, 214, 0.8)' },
         },
       },
       backgroundImage: {
@@ -134,10 +134,10 @@ const config: Config = {
         'dot': '20px 20px',
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(99, 102, 241, 0.3)',
-        'glow-lg': '0 0 40px rgba(99, 102, 241, 0.4)',
+        'glow': '0 0 20px rgba(0, 153, 214, 0.3)',
+        'glow-lg': '0 0 40px rgba(0, 153, 214, 0.4)',
         'glow-cyan': '0 0 20px rgba(6, 182, 212, 0.3)',
-        'inner-glow': 'inset 0 0 20px rgba(99, 102, 241, 0.1)',
+        'inner-glow': 'inset 0 0 20px rgba(0, 153, 214, 0.1)',
       },
       borderRadius: {
         '4xl': '2rem',
