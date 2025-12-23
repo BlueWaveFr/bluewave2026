@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
@@ -11,33 +13,45 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://bluewave.fr'),
   title: {
-    default: 'Bluewave - Votre titre accrocheur',
+    default: 'Bluewave - Agence Developpement Web & SEO Technique',
     template: '%s | Bluewave',
   },
-  description: 'Description SEO de Bluewave - environ 155 caractères pour un affichage optimal dans les résultats de recherche Google.',
-  keywords: ['mot-clé 1', 'mot-clé 2', 'mot-clé 3'],
+  description: 'Agence digitale specialisee en developpement web, applications sur mesure, e-commerce, SEO technique et solutions IA. Expertise technique pour PME et grands comptes.',
+  keywords: [
+    'developpement web',
+    'agence digitale',
+    'SEO technique',
+    'application web',
+    'e-commerce',
+    'audit technique',
+    'consulting digital',
+    'Next.js',
+    'React',
+    'WordPress',
+  ],
   authors: [{ name: 'Bluewave' }],
   creator: 'Bluewave',
+  publisher: 'Bluewave',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
     url: 'https://bluewave.fr',
     siteName: 'Bluewave',
-    title: 'Bluewave - Votre titre accrocheur',
-    description: 'Description pour les réseaux sociaux',
+    title: 'Bluewave - Agence Developpement Web & SEO Technique',
+    description: 'Agence digitale specialisee en developpement web, applications sur mesure, e-commerce, SEO technique et solutions IA.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bluewave',
+        alt: 'Bluewave - Agence Developpement Web',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bluewave',
-    description: 'Description pour Twitter',
+    title: 'Bluewave - Agence Developpement Web & SEO Technique',
+    description: 'Agence digitale specialisee en developpement web, applications sur mesure, e-commerce, SEO technique et solutions IA.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -51,9 +65,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'votre-code-google-search-console',
-  },
 }
 
 export default function RootLayout({
@@ -63,8 +74,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={inter.variable}>
-      <body className="bg-white text-gray-900">
-        {children}
+      <body className="min-h-screen flex flex-col">
+        <Header />
+        <div className="flex-1">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   )

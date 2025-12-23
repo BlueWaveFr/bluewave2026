@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/*
+Disallow: /admin/*
+
+# Host
+Host: https://bluewave.fr
+
+# Sitemaps
+Sitemap: https://bluewave.fr/sitemap.xml
