@@ -79,6 +79,8 @@ const technologies = [
   { name: 'AWS', category: 'devops' },
   { name: 'Vercel', category: 'devops' },
   { name: 'WordPress', category: 'cms' },
+  { name: 'Prestashop', category: 'ecommerce' },
+  { name: 'Claude AI', category: 'ai' },
 ]
 
 const testimonials = [
@@ -110,59 +112,164 @@ export default function Home() {
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/15 rounded-full blur-[128px]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate="visible"
-            className="max-w-4xl"
-          >
-            {/* Badge */}
-            <motion.div variants={fadeIn} className="mb-8">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-accent-500/10 border border-accent-500/20 text-accent-400 text-sm font-medium">
-                <span className="w-2 h-2 rounded-full bg-success-500 mr-2 animate-pulse" />
-                Disponible pour nouveaux projets
-              </span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Content */}
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              animate="visible"
+            >
+              {/* Badge */}
+              <motion.div variants={fadeIn} className="mb-8">
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-accent-500/10 border border-accent-500/20 text-accent-400 text-sm font-medium">
+                  <span className="w-2 h-2 rounded-full bg-success-500 mr-2 animate-pulse" />
+                  Disponible pour nouveaux projets
+                </span>
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1
+                variants={fadeIn}
+                className="heading-xl text-white mb-6"
+              >
+                Nous construisons des{' '}
+                <span className="gradient-text">experiences digitales</span>{' '}
+                exceptionnelles
+              </motion.h1>
+
+              {/* Subheadline */}
+              <motion.p
+                variants={fadeIn}
+                className="text-xl text-dark-300 mb-10 max-w-2xl leading-relaxed"
+              >
+                Agence digitale specialisee en developpement web, SEO technique et solutions IA.
+                Nous transformons vos ambitions en produits performants.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 bg-accent-500 text-white font-medium rounded-xl hover:bg-accent-600 transition-all duration-200"
+                >
+                  <span className="relative z-10">Demarrer un projet</span>
+                  <svg className="relative z-10 ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                  <div className="absolute inset-0 rounded-xl bg-accent-500 blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center px-8 py-4 border border-dark-700 text-white font-medium rounded-xl hover:bg-dark-800/50 hover:border-dark-600 transition-all duration-200"
+                >
+                  Decouvrir nos services
+                </Link>
+              </motion.div>
             </motion.div>
 
-            {/* Headline */}
-            <motion.h1
-              variants={fadeIn}
-              className="heading-xl text-white mb-6"
+            {/* Right side - Terminal Visual */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="hidden lg:block relative"
             >
-              Nous construisons des{' '}
-              <span className="gradient-text">experiences digitales</span>{' '}
-              exceptionnelles
-            </motion.h1>
+              <div className="relative rounded-2xl overflow-hidden border border-dark-800/50 bg-dark-950/90 backdrop-blur-xl shadow-2xl">
+                {/* Terminal header */}
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-dark-800/50 bg-dark-900/50">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  </div>
+                  <span className="ml-2 text-dark-500 text-xs font-mono">bluewave ~ </span>
+                </div>
 
-            {/* Subheadline */}
-            <motion.p
-              variants={fadeIn}
-              className="text-xl text-dark-300 mb-10 max-w-2xl leading-relaxed"
-            >
-              Agence digitale specialisee en developpement web, SEO technique et solutions IA.
-              Nous transformons vos ambitions en produits performants.
-            </motion.p>
+                {/* Terminal content */}
+                <div className="p-6 font-mono text-sm">
+                  <div className="space-y-3">
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <span className="text-cyan-400">$</span>
+                      <span className="text-dark-300"> npx create-next-app@latest</span>
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.8 }}
+                      className="text-success-400"
+                    >
+                      Success! Created my-project
+                    </motion.p>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.1 }}
+                    >
+                      <span className="text-cyan-400">$</span>
+                      <span className="text-dark-300"> npm run dev</span>
+                    </motion.p>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.4 }}
+                      className="text-dark-400 space-y-1"
+                    >
+                      <p>- Local: <span className="text-accent-400">http://localhost:3000</span></p>
+                      <p>- Ready in <span className="text-success-400">2.1s</span></p>
+                    </motion.div>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.7 }}
+                      className="flex items-center gap-2"
+                    >
+                      <span className="text-cyan-400">$</span>
+                      <span className="text-dark-300">_</span>
+                      <motion.span
+                        animate={{ opacity: [1, 0, 1] }}
+                        transition={{ repeat: Infinity, duration: 1 }}
+                        className="w-2 h-4 bg-accent-400 inline-block"
+                      />
+                    </motion.p>
+                  </div>
+                </div>
 
-            {/* CTAs */}
-            <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="group relative inline-flex items-center justify-center px-8 py-4 bg-accent-500 text-white font-medium rounded-xl hover:bg-accent-600 transition-all duration-200"
+                {/* Floating elements */}
+                <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent-500/20 rounded-full blur-2xl" />
+                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-cyan-500/20 rounded-full blur-2xl" />
+              </div>
+
+              {/* Tech stack badges floating */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="absolute -left-4 top-1/4 px-3 py-2 bg-dark-900/90 border border-dark-700/50 rounded-lg text-xs font-medium text-dark-300 backdrop-blur-sm"
               >
-                <span className="relative z-10">Demarrer un projet</span>
-                <svg className="relative z-10 ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-                <div className="absolute inset-0 rounded-xl bg-accent-500 blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center px-8 py-4 border border-dark-700 text-white font-medium rounded-xl hover:bg-dark-800/50 hover:border-dark-600 transition-all duration-200"
+                React + Next.js
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className="absolute -right-4 top-1/2 px-3 py-2 bg-dark-900/90 border border-dark-700/50 rounded-lg text-xs font-medium text-dark-300 backdrop-blur-sm"
               >
-                Decouvrir nos services
-              </Link>
+                TypeScript
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.0 }}
+                className="absolute -left-2 bottom-1/4 px-3 py-2 bg-dark-900/90 border border-dark-700/50 rounded-lg text-xs font-medium text-dark-300 backdrop-blur-sm"
+              >
+                Prestashop Expert
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Scroll indicator */}
           <motion.div
@@ -290,6 +397,118 @@ export default function Home() {
               </motion.span>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* AI Development Section */}
+      <section className="section-padding">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="badge mb-6">Innovation</span>
+              <h2 className="heading-lg text-white mb-6">
+                Developpement assiste par{' '}
+                <span className="gradient-text">Intelligence Artificielle</span>
+              </h2>
+              <p className="text-dark-300 text-lg mb-6 leading-relaxed">
+                Nous exploitons la puissance de l'IA pour accelerer le developpement,
+                ameliorer la qualite du code et resoudre des problemes complexes plus rapidement.
+              </p>
+              <ul className="space-y-4 mb-8">
+                {[
+                  'Generation de code optimise et revue automatique',
+                  'Debugging intelligent et analyse de logs',
+                  'Documentation et tests automatises',
+                  'Refactoring et optimisation de performance',
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start gap-3 text-dark-300"
+                  >
+                    <svg className="w-5 h-5 text-accent-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </motion.li>
+                ))}
+              </ul>
+              <Link
+                href="/contact"
+                className="inline-flex items-center px-6 py-3 bg-accent-500 text-white font-medium rounded-lg hover:bg-accent-600 transition-all"
+              >
+                Decouvrir notre approche
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </motion.div>
+
+            {/* Code Visual - Linear style */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden border border-dark-800/50 bg-dark-950/80 backdrop-blur-xl shadow-2xl">
+                {/* Window header */}
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-dark-800/50 bg-dark-900/50">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  </div>
+                  <span className="ml-2 text-dark-500 text-xs font-mono">ai-assistant.ts</span>
+                </div>
+
+                {/* Code content */}
+                <div className="p-6 font-mono text-sm overflow-x-auto">
+                  <div className="space-y-1">
+                    <p><span className="text-purple-400">import</span> <span className="text-cyan-300">{'{ Claude }'}</span> <span className="text-purple-400">from</span> <span className="text-green-400">'@anthropic/sdk'</span></p>
+                    <p className="text-dark-600">{'// Analyse et optimise le code automatiquement'}</p>
+                    <p className="mt-4"><span className="text-purple-400">async function</span> <span className="text-yellow-300">analyzeCode</span><span className="text-dark-300">(</span><span className="text-orange-300">code</span><span className="text-dark-500">: string</span><span className="text-dark-300">)</span> <span className="text-dark-300">{'{'}</span></p>
+                    <p className="pl-4"><span className="text-purple-400">const</span> <span className="text-cyan-300">analysis</span> <span className="text-dark-300">=</span> <span className="text-purple-400">await</span> <span className="text-cyan-300">claude</span><span className="text-dark-300">.</span><span className="text-yellow-300">analyze</span><span className="text-dark-300">(</span><span className="text-dark-300">{'{'}</span></p>
+                    <p className="pl-8"><span className="text-cyan-300">code</span><span className="text-dark-300">,</span></p>
+                    <p className="pl-8"><span className="text-cyan-300">focus</span><span className="text-dark-300">:</span> <span className="text-dark-300">[</span><span className="text-green-400">'performance'</span><span className="text-dark-300">,</span> <span className="text-green-400">'security'</span><span className="text-dark-300">],</span></p>
+                    <p className="pl-8"><span className="text-cyan-300">suggest</span><span className="text-dark-300">:</span> <span className="text-orange-300">true</span></p>
+                    <p className="pl-4"><span className="text-dark-300">{'}'}</span><span className="text-dark-300">)</span></p>
+                    <p className="pl-4 mt-2"><span className="text-purple-400">return</span> <span className="text-cyan-300">analysis</span><span className="text-dark-300">.</span><span className="text-cyan-300">suggestions</span></p>
+                    <p><span className="text-dark-300">{'}'}</span></p>
+                  </div>
+                </div>
+
+                {/* AI suggestion overlay */}
+                <div className="absolute bottom-4 right-4 left-4">
+                  <div className="p-4 rounded-lg bg-accent-500/10 border border-accent-500/20 backdrop-blur-sm">
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-lg bg-accent-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg className="w-4 h-4 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-accent-400 text-xs font-medium mb-1">Suggestion IA</p>
+                        <p className="text-dark-300 text-xs">Ajouter un cache pour optimiser les requetes repetees (+40% perf)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent-500/20 rounded-full blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl" />
+            </motion.div>
+          </div>
         </div>
       </section>
 

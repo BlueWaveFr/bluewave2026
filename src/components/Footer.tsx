@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const footerLinks = {
   services: [
@@ -65,13 +66,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <Link href="/" className="inline-flex items-center space-x-3 group mb-6">
-              <div className="relative">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-500 to-cyan-500 flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">B</span>
-                </div>
-              </div>
-              <span className="text-xl font-bold text-white">Bluewave</span>
+            <Link href="/" className="inline-block mb-6">
+              <Image
+                src="/images/logo.webp"
+                alt="Bluewave"
+                width={140}
+                height={35}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-dark-400 text-sm leading-relaxed mb-6 max-w-sm">
               Agence digitale specialisee en developpement web, SEO technique et solutions IA.

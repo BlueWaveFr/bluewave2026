@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const navigation = [
   { name: 'Services', href: '/services' },
@@ -34,16 +35,15 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-500 to-cyan-500 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">B</span>
-              </div>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-accent-500 to-cyan-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
-            </div>
-            <span className="text-xl font-bold text-white">
-              Bluewave
-            </span>
+          <Link href="/" className="flex items-center group">
+            <Image
+              src="/images/logo.webp"
+              alt="Bluewave"
+              width={160}
+              height={40}
+              className="h-8 lg:h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

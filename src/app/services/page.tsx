@@ -9,7 +9,7 @@ const services = [
     description: 'Applications web sur mesure, sites e-commerce et plateformes SaaS. Nous concevons des solutions robustes et evolutives adaptees a vos besoins specifiques.',
     features: [
       'Sites web et applications React/Next.js',
-      'Plateformes e-commerce (Shopify, WooCommerce)',
+      'Plateformes e-commerce (Prestashop, Shopify, WooCommerce)',
       'Applications SaaS sur mesure',
       'Integrations API et automatisations',
       'Progressive Web Apps (PWA)',
