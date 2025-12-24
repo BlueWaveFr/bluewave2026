@@ -4,6 +4,9 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Developpement Web Sur Mesure',
   description: 'Developpement d\'applications web, sites e-commerce et plateformes SaaS. Solutions robustes et evolutives avec les dernieres technologies.',
+  alternates: {
+    canonical: 'https://bluewave.fr/services/developpement',
+  },
 }
 
 const features = [
