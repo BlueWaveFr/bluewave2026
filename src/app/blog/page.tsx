@@ -1,8 +1,24 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
+
+const WORDPRESS_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://cms.bluewave.fr/graphql'
+
+export const metadata: Metadata = {
+  title: 'Blog | Bluewave - Actualites et reflexions tech',
+  description: 'Nos dernieres publications sur le developpement web, le SEO technique, les tendances technologiques et nos retours d\'experience.',
+  openGraph: {
+    title: 'Blog | Bluewave',
+    description: 'Actualites, guides et reflexions sur le developpement web et les technologies.',
+    url: 'https://bluewave.fr/blog',
+  },
+  alternates: {
+    canonical: 'https://bluewave.fr/blog',
+  },
+}
 
 async function getPosts() {
   try {
-    const res = await fetch(process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://cms.bluewave.fr/graphql', {
+    const res = await fetch(WORDPRESS_API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -30,6 +46,10 @@ async function getPosts() {
                   node {
                     name
                   }
+                }
+                seo {
+                  title
+                  metaDesc
                 }
               }
             }
