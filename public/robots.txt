@@ -9,3 +9,4 @@ Host: https://bluewave.fr
 
 # Sitemaps
 Sitemap: https://bluewave.fr/sitemap.xml
+Sitemap: https://blog.bluewave.fr/sitemap_index.xml
