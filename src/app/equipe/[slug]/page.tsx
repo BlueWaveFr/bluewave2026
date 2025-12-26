@@ -114,6 +114,14 @@ async function getAuthorFromWP(slug: string): Promise<Author | null> {
                   excerpt
                 }
               }
+              guides(first: 10, where: { status: PUBLISH }) {
+                nodes {
+                  id
+                  title
+                  slug
+                  date
+                }
+              }
             }
           }
         `,
@@ -194,6 +202,7 @@ export default async function TeamMemberPage({ params }: { params: Promise<{ slu
   }
 
   const posts = wpAuthor.posts?.nodes || []
+  const guides = wpAuthor.guides?.nodes || []
 
   return (
     <main className="pt-20">
@@ -327,6 +336,35 @@ export default async function TeamMemberPage({ params }: { params: Promise<{ slu
                       <span key={cert} className="px-4 py-2 bg-accent-500/10 border border-accent-500/20 rounded-lg text-accent-400 text-sm font-medium">
                         {cert}
                       </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Guides */}
+              {guides.length > 0 && (
+                <div className="mb-12">
+                  <h2 className="heading-md text-white mb-6">Guides techniques</h2>
+                  <div className="space-y-4">
+                    {guides.slice(0, 5).map((guide) => (
+                      <Link key={guide.id} href={`/guides/${guide.slug}`}>
+                        <div className="p-6 card-interactive">
+                          <div className="flex items-start justify-between gap-4">
+                            <div>
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="text-xs px-2 py-0.5 bg-accent-500/10 border border-accent-500/20 rounded text-accent-400">Guide</span>
+                              </div>
+                              <h3 className="text-white font-medium mb-1 group-hover:text-accent-400">
+                                {guide.title}
+                              </h3>
+                              <p className="text-dark-500 text-sm">{formatDate(guide.date)}</p>
+                            </div>
+                            <svg className="w-5 h-5 text-dark-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </div>
+                        </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
