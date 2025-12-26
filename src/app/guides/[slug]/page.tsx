@@ -23,6 +23,16 @@ interface Guide {
       slug: string
     }>
   }
+  author?: {
+    node: {
+      name: string
+      slug: string
+      avatar?: {
+        url: string
+      }
+      description?: string
+    }
+  }
   seo?: {
     title: string
     metaDesc: string
@@ -61,6 +71,16 @@ async function getGuide(slug: string): Promise<Guide | null> {
                   nodes {
                     name
                     slug
+                  }
+                }
+                author {
+                  node {
+                    name
+                    slug
+                    avatar {
+                      url
+                    }
+                    description
                   }
                 }
                 seo {
@@ -187,6 +207,25 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             <h1 className="heading-lg text-white mb-6">
               {guide.title}
             </h1>
+
+            {/* Author - Important pour E-E-A-T */}
+            {guide.author?.node && (
+              <div className="flex items-center gap-4">
+                {guide.author.node.avatar?.url && (
+                  <img
+                    src={guide.author.node.avatar.url}
+                    alt={guide.author.node.name}
+                    className="w-12 h-12 rounded-full bg-dark-800"
+                  />
+                )}
+                <div>
+                  <p className="text-white font-medium">
+                    {guide.author.node.name}
+                  </p>
+                  <p className="text-dark-400 text-sm">Expert Bluewave</p>
+                </div>
+              </div>
+            )}
           </div>
         </header>
 
@@ -210,6 +249,34 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             dangerouslySetInnerHTML={{ __html: guide.content }}
           />
         </div>
+
+        {/* Author Box - E-E-A-T */}
+        {guide.author?.node && (
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-12 border-t border-dark-800/50">
+            <div className="card p-8">
+              <div className="flex items-start gap-6">
+                {guide.author.node.avatar?.url && (
+                  <img
+                    src={guide.author.node.avatar.url}
+                    alt={guide.author.node.name}
+                    className="w-20 h-20 rounded-full bg-dark-800 flex-shrink-0"
+                  />
+                )}
+                <div>
+                  <p className="text-dark-400 text-sm mb-1">Redige par</p>
+                  <p className="text-xl font-semibold text-white">
+                    {guide.author.node.name}
+                  </p>
+                  {guide.author.node.description && (
+                    <p className="text-dark-400 mt-2 leading-relaxed">
+                      {guide.author.node.description}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* CTA */}
         <section className="section-padding">
