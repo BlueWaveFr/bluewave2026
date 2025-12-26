@@ -13,7 +13,7 @@ Bluewave - BW Design SARL est une agence digitale basee a Bordeaux, France. Nous
 
 ### Developpement Web
 - Applications React & Next.js
-- Sites e-commerce (Shopify, WooCommerce, Prestashop)
+- Sites e-commerce (Prestashop - Expert, WooCommerce)
 - Plateformes SaaS
 - API & Integrations
 - Progressive Web Apps (PWA)

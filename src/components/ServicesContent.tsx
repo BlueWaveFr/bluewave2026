@@ -9,7 +9,7 @@ const services = [
     description: 'Applications web sur mesure, sites e-commerce et plateformes SaaS. Nous concevons des solutions robustes et evolutives adaptees a vos besoins specifiques.',
     features: [
       'Sites web et applications React/Next.js',
-      'Plateformes e-commerce (Prestashop, Shopify, WooCommerce)',
+      'Plateformes e-commerce (Prestashop, WooCommerce)',
       'Applications SaaS sur mesure',
       'Integrations API et automatisations',
       'Progressive Web Apps (PWA)',
@@ -139,7 +139,7 @@ export default function ServicesContent() {
               >
                 <Link href={service.href}>
                   <div className="group h-full p-8 lg:p-10 card-interactive">
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-200`}>
                       {service.icon}
                     </div>
                     <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-accent-400 transition-colors">
@@ -233,12 +233,9 @@ export default function ServicesContent() {
             <p className="text-dark-300 text-lg mb-8 max-w-xl mx-auto">
               Discutons de vos besoins et voyons comment nous pouvons vous aider.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-accent-500 text-white font-medium rounded-xl hover:bg-accent-600 transition-all"
-            >
+            <Link href="/contact" className="group btn-primary">
               Planifier un appel
-              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>

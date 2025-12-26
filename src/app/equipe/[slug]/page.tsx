@@ -65,7 +65,7 @@ const TEAM_EXTRA_DATA: Record<string, {
       'React / Next.js / TypeScript',
       'SEO technique & Core Web Vitals',
       'WordPress & Headless CMS',
-      'E-commerce (Prestashop, Shopify)',
+      'E-commerce (Prestashop, WooCommerce)',
       'DevOps & CI/CD',
     ],
     certifications: [

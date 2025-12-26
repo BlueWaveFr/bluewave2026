@@ -61,12 +61,8 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link
-              href="/contact"
-              className="group relative px-5 py-2.5 text-sm font-medium text-white rounded-lg bg-accent-500 hover:bg-accent-600 transition-all duration-200"
-            >
-              <span className="relative z-10">Discutons de votre projet</span>
-              <div className="absolute inset-0 rounded-lg bg-accent-500 blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
+            <Link href="/contact" className="btn-primary-sm">
+              Discutons de votre projet
             </Link>
           </div>
 
@@ -137,7 +133,7 @@ export default function Header() {
                 >
                   <Link
                     href="/contact"
-                    className="block w-full text-center px-6 py-3 bg-accent-500 text-white font-medium rounded-lg hover:bg-accent-600 transition-colors"
+                    className="btn-primary w-full justify-center"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Discutons de votre projet

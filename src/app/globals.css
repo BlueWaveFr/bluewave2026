@@ -63,42 +63,75 @@
     @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Buttons - Linear style */
+  /* Buttons - Linear style (snappy 150ms transitions) */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center px-6 py-3
-           bg-accent-500 text-white font-medium rounded-lg
-           hover:bg-accent-600 active:bg-accent-700
-           transition-all duration-200
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-4
+           bg-accent-500 text-white font-medium rounded-xl
+           hover:bg-accent-600 active:bg-accent-700 active:scale-[0.98]
+           transition-all duration-150
+           shadow-glow hover:shadow-glow-lg;
+  }
+
+  .btn-primary-sm {
+    @apply relative inline-flex items-center justify-center gap-2 px-5 py-2.5
+           bg-accent-500 text-white text-sm font-medium rounded-lg
+           hover:bg-accent-600 active:bg-accent-700 active:scale-[0.98]
+           transition-all duration-150
            shadow-glow hover:shadow-glow-lg;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3
-           bg-dark-800 text-dark-100 font-medium rounded-lg
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           bg-dark-800 text-dark-100 font-medium rounded-xl
            border border-dark-700
-           hover:bg-dark-700 hover:border-dark-600
-           transition-all duration-200;
+           hover:bg-dark-700 hover:border-dark-600 active:scale-[0.98]
+           transition-all duration-150;
+  }
+
+  .btn-secondary-sm {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           bg-dark-800 text-dark-100 text-sm font-medium rounded-lg
+           border border-dark-700
+           hover:bg-dark-700 hover:border-dark-600 active:scale-[0.98]
+           transition-all duration-150;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center px-6 py-3
-           text-dark-300 font-medium rounded-lg
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3
+           text-dark-300 font-medium rounded-xl
            hover:text-white hover:bg-dark-800/50
-           transition-all duration-200;
+           transition-all duration-150;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3
-           border border-accent-500/50 text-accent-400 font-medium rounded-lg
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           border border-accent-500/50 text-accent-400 font-medium rounded-xl
            hover:bg-accent-500/10 hover:border-accent-500
-           transition-all duration-200;
+           transition-all duration-150;
   }
 
-  /* Cards - Glass morphism */
+  /* Button icon - for arrows and icons inside buttons */
+  .btn-icon {
+    @apply w-5 h-5 transition-transform duration-150 group-hover:translate-x-1;
+  }
+
+  /* Cards - Glass morphism (Linear style with faster transitions) */
   .card {
     @apply bg-dark-900/50 backdrop-blur-xl rounded-2xl
            border border-dark-800/50
-           transition-all duration-300;
+           transition-all duration-200;
+  }
+
+  .card-sm {
+    @apply card p-6;
+  }
+
+  .card-md {
+    @apply card p-8;
+  }
+
+  .card-lg {
+    @apply card p-12;
   }
 
   .card-hover {
@@ -111,7 +144,7 @@
 
   .card-interactive {
     @apply card-glow cursor-pointer
-           hover:translate-y-[-2px] active:translate-y-0;
+           hover:translate-y-[-2px] hover:scale-[1.01] active:translate-y-0 active:scale-100;
   }
 
   /* Glass effect */

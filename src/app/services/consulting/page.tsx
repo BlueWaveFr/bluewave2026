@@ -104,10 +104,7 @@ export default function ConsultingPage() {
               et accelerer vos projets. Conseil, formation et accompagnement sur mesure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-accent-500 text-white font-medium rounded-xl hover:bg-accent-600 transition-all"
-              >
+              <Link href="/contact" className="btn-primary">
                 Planifier un appel
               </Link>
             </div>
@@ -180,12 +177,9 @@ export default function ConsultingPage() {
             <p className="text-dark-300 text-lg mb-8 max-w-xl mx-auto">
               Discutons de vos challenges techniques et voyons comment nous pouvons vous aider.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-accent-500 text-white font-medium rounded-xl hover:bg-accent-600 transition-all"
-            >
+            <Link href="/contact" className="group btn-primary">
               Prendre rendez-vous
-              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>

@@ -3,21 +3,14 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
-}
-
-const stagger = {
-  visible: { transition: { staggerChildren: 0.1 } }
-}
+import { fadeInUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/animations'
 
 const services = [
   {
     title: 'Developpement Web',
     description: 'Applications web sur mesure, sites e-commerce et plateformes SaaS performantes.',
     longDescription: 'De la conception a la mise en production, nous developpons des applications modernes avec React, Next.js et les dernieres technologies. Performance, accessibilite et SEO sont au coeur de chaque projet.',
-    features: ['Applications React & Next.js', 'Sites e-commerce', 'Plateformes SaaS', 'API & Integrations'],
+    features: ['Applications React & Next.js', 'E-commerce Prestashop', 'Plateformes SaaS', 'API & Integrations'],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -260,12 +253,12 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Content */}
             <motion.div
-              variants={stagger}
+              variants={staggerContainer}
               initial="hidden"
               animate="visible"
             >
               {/* Badge */}
-              <motion.div variants={fadeIn} className="mb-8">
+              <motion.div variants={staggerItem} className="mb-8">
                 <span className="inline-flex items-center px-4 py-2 rounded-full bg-accent-500/10 border border-accent-500/20 text-accent-400 text-sm font-medium">
                   <span className="w-2 h-2 rounded-full bg-success-500 mr-2 animate-pulse" />
                   Disponible pour nouveaux projets
@@ -274,7 +267,7 @@ export default function Home() {
 
               {/* Headline */}
               <motion.h1
-                variants={fadeIn}
+                variants={staggerItem}
                 className="heading-xl text-white mb-6"
               >
                 Nous construisons des{' '}
@@ -284,7 +277,7 @@ export default function Home() {
 
               {/* Subheadline */}
               <motion.p
-                variants={fadeIn}
+                variants={staggerItem}
                 className="text-xl text-dark-300 mb-10 max-w-2xl leading-relaxed"
               >
                 Agence digitale specialisee en developpement web, SEO technique et solutions IA.
@@ -292,21 +285,14 @@ export default function Home() {
               </motion.p>
 
               {/* CTAs */}
-              <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="group relative inline-flex items-center justify-center px-8 py-4 bg-accent-500 text-white font-medium rounded-xl hover:bg-accent-600 transition-all duration-200"
-                >
+              <motion.div variants={staggerItem} className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact" className="group btn-primary">
                   <span className="relative z-10">Demarrer un projet</span>
-                  <svg className="relative z-10 ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                  <div className="absolute inset-0 rounded-xl bg-accent-500 blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
                 </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center px-8 py-4 border border-dark-700 text-white font-medium rounded-xl hover:bg-dark-800/50 hover:border-dark-600 transition-all duration-200"
-                >
+                <Link href="/services" className="btn-secondary">
                   Decouvrir nos services
                 </Link>
               </motion.div>
@@ -697,12 +683,9 @@ export default function Home() {
                   </motion.li>
                 ))}
               </ul>
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-6 py-3 bg-accent-500 text-white font-medium rounded-lg hover:bg-accent-600 transition-all"
-              >
+              <Link href="/contact" className="group btn-primary">
                 Decouvrir notre approche
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
@@ -835,16 +818,16 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-accent-600 font-semibold rounded-xl hover:bg-dark-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-accent-600 font-semibold rounded-xl hover:bg-dark-100 transition-all duration-150 shadow-lg hover:shadow-xl active:scale-[0.98]"
                 >
                   Planifier un appel
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-all duration-150 active:scale-[0.98]"
                 >
                   Voir nos services
                 </Link>
