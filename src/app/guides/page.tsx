@@ -72,7 +72,7 @@ async function getGuides(): Promise<Guide[]> {
           }
         `
       }),
-      next: { revalidate: 10 }
+      cache: 'no-store'
     })
 
     const json = await res.json()
@@ -101,7 +101,7 @@ async function getGuideCategories(): Promise<Category[]> {
           }
         `
       }),
-      next: { revalidate: 10 }
+      cache: 'no-store'
     })
 
     const json = await res.json()
