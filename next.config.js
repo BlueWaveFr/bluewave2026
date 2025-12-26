@@ -34,13 +34,17 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Redirections manuelles articles -> guides
-      // Ajoute ici les redirections specifiques :
-      // {
-      //   source: '/blog/ancien-slug',
-      //   destination: '/guides/nouveau-slug',
-      //   permanent: true,
-      // },
+      // Redirections 301 : anciens articles -> guides
+      {
+        source: '/blog/pwa-react-next-js-guide-developpement-complet',
+        destination: '/guides/pwa-react-next-js-guide-developpement-complet',
+        permanent: true,
+      },
+      {
+        source: '/blog/guide-complet-integrer-lia-dans-le-developpement-web-en-2026',
+        destination: '/guides/guide-complet-integrer-lia-dans-le-developpement-web-en-2026',
+        permanent: true,
+      },
     ]
   },
 }
