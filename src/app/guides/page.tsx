@@ -19,7 +19,6 @@ interface Guide {
   title: string
   slug: string
   date: string
-  excerpt: string
   content: string
   featuredImage?: {
     node: {
@@ -54,7 +53,6 @@ async function getGuides(): Promise<Guide[]> {
                 title
                 slug
                 date
-                excerpt
                 content
                 featuredImage {
                   node {
@@ -189,10 +187,9 @@ export default async function GuidesPage() {
                         <h2 className="text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors">
                           {guide.title}
                         </h2>
-                        <div
-                          className="text-dark-400 mb-6 line-clamp-3"
-                          dangerouslySetInnerHTML={{ __html: guide.excerpt }}
-                        />
+                        <p className="text-dark-400 mb-6 line-clamp-3">
+                          {guide.content?.replace(/<[^>]*>/g, '').slice(0, 200)}...
+                        </p>
                         <span className="inline-flex items-center text-accent-400 text-sm font-medium group-hover:text-accent-300">
                           Lire le guide
                           <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

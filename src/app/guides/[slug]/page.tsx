@@ -11,7 +11,6 @@ interface Guide {
   date: string
   modified: string
   content: string
-  excerpt: string
   featuredImage?: {
     node: {
       sourceUrl: string
@@ -62,7 +61,6 @@ async function getGuide(slug: string): Promise<Guide | null> {
                 date
                 modified
                 content
-                excerpt
                 featuredImage {
                   node {
                     sourceUrl
@@ -124,7 +122,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const seo = guide.seo
   const title = seo?.title || `${guide.title} | Guides Bluewave`
-  const description = seo?.metaDesc || guide.excerpt?.replace(/<[^>]*>/g, '').slice(0, 160)
+  const description = seo?.metaDesc || guide.content?.replace(/<[^>]*>/g, '').slice(0, 160)
   const ogImage = seo?.opengraphImage?.sourceUrl || guide.featuredImage?.node?.sourceUrl
 
   return {
