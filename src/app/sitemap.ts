@@ -3,13 +3,13 @@ import { MetadataRoute } from 'next'
 const WORDPRESS_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://cms.bluewave.fr/graphql'
 const SITE_URL = 'https://bluewave.fr'
 
-interface WPPost {
+interface WPContent {
   slug: string
   date: string
   modified: string
 }
 
-async function getAllPosts(): Promise<WPPost[]> {
+async function getAllPosts(): Promise<WPContent[]> {
   try {
     const res = await fetch(WORDPRESS_API_URL, {
       method: 'POST',
@@ -27,13 +27,42 @@ async function getAllPosts(): Promise<WPPost[]> {
           }
         `
       }),
-      next: { revalidate: 3600 } // Revalidate every hour
+      next: { revalidate: 3600 }
     })
 
     const json = await res.json()
     return json.data?.posts?.nodes || []
   } catch (error) {
     console.error('Error fetching posts for sitemap:', error)
+    return []
+  }
+}
+
+async function getAllGuides(): Promise<WPContent[]> {
+  try {
+    const res = await fetch(WORDPRESS_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+          query GetAllGuidesForSitemap {
+            guides(first: 1000, where: { status: PUBLISH }) {
+              nodes {
+                slug
+                date
+                modified
+              }
+            }
+          }
+        `
+      }),
+      next: { revalidate: 3600 }
+    })
+
+    const json = await res.json()
+    return json.data?.guides?.nodes || []
+  } catch (error) {
+    console.error('Error fetching guides for sitemap:', error)
     return []
   }
 }
@@ -83,10 +112,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    {
+      url: `${SITE_URL}/equipe`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/equipe/stephane-geraut`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ]
 
-  // Dynamic blog posts from WordPress
-  const posts = await getAllPosts()
+  // Dynamic content from WordPress
+  const [posts, guides] = await Promise.all([
+    getAllPosts(),
+    getAllGuides()
+  ])
+
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.modified || post.date),
@@ -94,5 +139,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...blogPages]
+  const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
+    url: `${SITE_URL}/guides/${guide.slug}`,
+    lastModified: new Date(guide.modified || guide.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  return [...staticPages, ...blogPages, ...guidePages]
 }
