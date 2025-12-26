@@ -11,7 +11,6 @@ const footerLinks = {
   ressources: [
     { name: 'Blog', href: '/blog' },
     { name: 'Guides', href: '/guides' },
-    { name: 'Documentation', href: '/docs' },
   ],
   entreprise: [
     { name: 'A propos', href: '/about' },
@@ -21,7 +20,6 @@ const footerLinks = {
   legal: [
     { name: 'Mentions legales', href: '/mentions-legales' },
     { name: 'Confidentialite', href: '/confidentialite' },
-    { name: 'CGV', href: '/cgv' },
   ],
 }
 
