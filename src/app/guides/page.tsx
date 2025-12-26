@@ -26,7 +26,7 @@ interface Guide {
       sourceUrl: string
     }
   }
-  categories?: {
+  catGoriesGuides?: {
     nodes: Array<{
       name: string
       slug: string
@@ -61,7 +61,7 @@ async function getGuides(): Promise<Guide[]> {
                     sourceUrl
                   }
                 }
-                categories {
+                catGoriesGuides {
                   nodes {
                     name
                     slug
@@ -90,8 +90,8 @@ async function getGuideCategories(): Promise<Category[]> {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: `
-          query GetCategories {
-            categories(first: 50) {
+          query GetCategoriesGuides {
+            catGoriesGuides(first: 50) {
               nodes {
                 name
                 slug
@@ -105,7 +105,7 @@ async function getGuideCategories(): Promise<Category[]> {
     })
 
     const json = await res.json()
-    return json.data?.categories?.nodes || []
+    return json.data?.catGoriesGuides?.nodes || []
   } catch (error) {
     console.error('Error fetching categories:', error)
     return []
@@ -173,7 +173,7 @@ export default async function GuidesPage() {
           {hasGuides ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {guides.map((guide) => {
-                const category = guide.categories?.nodes?.[0]
+                const category = guide.catGoriesGuides?.nodes?.[0]
                 const readTime = estimateReadTime(guide.content)
 
                 return (
