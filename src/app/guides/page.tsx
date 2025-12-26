@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 
+// Forcer le rendu dynamique pour récupérer les guides WordPress
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Guides Techniques',
   description: 'Guides techniques approfondis sur le developpement web, SEO, performance et bonnes pratiques. Ressources pour developeurs et equipes techniques.',
