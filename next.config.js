@@ -37,12 +37,12 @@ const nextConfig = {
       // Redirections 301 : anciens articles -> guides
       {
         source: '/blog/pwa-react-next-js-guide-developpement-complet',
-        destination: '/guides/pwa-react-next-js-guide-developpement-complet',
+        destination: '/guides/pwa-avec-react-et-next-js-guide-de-developpement-complet',
         permanent: true,
       },
       {
         source: '/blog/guide-complet-integrer-lia-dans-le-developpement-web-en-2026',
-        destination: '/guides/guide-complet-integrer-lia-dans-le-developpement-web-en-2026',
+        destination: '/guides/guide-complet-integrer-ia-dans-le-developpement-web',
         permanent: true,
       },
     ]
