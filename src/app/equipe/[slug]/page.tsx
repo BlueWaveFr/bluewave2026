@@ -40,27 +40,26 @@ interface Author {
   }
 }
 
-// Donnees auteur statiques pour E-E-A-T (a personnaliser)
-const TEAM_MEMBERS: Record<string, {
-  name: string
+// Mapping slug URL -> slug WordPress (si different)
+const SLUG_MAPPING: Record<string, string> = {
+  'stephane-geraut': 'steph',
+}
+
+// Donnees supplementaires E-E-A-T (expertise, certifications, etc.)
+// Ces donnees enrichissent les infos WordPress
+const TEAM_EXTRA_DATA: Record<string, {
   role: string
-  bio: string
   expertise: string[]
   certifications: string[]
   experience: string
-  photo?: string
   social: {
     linkedin?: string
     twitter?: string
     github?: string
   }
 }> = {
-  'stephane-geraut': {
-    name: 'Stephane Geraut',
+  'steph': {
     role: 'Fondateur & Lead Developer',
-    bio: `Expert en developpement web avec plus de 15 ans d'experience, Stephane accompagne les entreprises dans leur transformation digitale. Specialise en architecture technique, SEO et performance web, il a dirige des projets pour des startups comme pour des grands groupes.
-
-Son approche combine rigueur technique et vision produit pour delivrer des solutions qui font la difference. Passionne par les technologies modernes, il partage regulierement son expertise a travers des articles techniques et des conferences.`,
     expertise: [
       'Architecture web & API',
       'React / Next.js / TypeScript',
@@ -133,32 +132,27 @@ async function getAuthorFromWP(slug: string): Promise<Author | null> {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const staticMember = TEAM_MEMBERS[slug]
+  const wpSlug = SLUG_MAPPING[slug] || slug
+  const author = await getAuthorFromWP(wpSlug)
+  const extraData = TEAM_EXTRA_DATA[wpSlug]
 
-  if (staticMember) {
-    return {
-      title: `${staticMember.name} - ${staticMember.role}`,
-      description: `Decouvrez le profil de ${staticMember.name}, ${staticMember.role} chez Bluewave. ${staticMember.experience} d'experience en developpement web.`,
-      openGraph: {
-        title: `${staticMember.name} - ${staticMember.role} | Bluewave`,
-        description: `${staticMember.role} avec ${staticMember.experience} d'experience. Expert en ${staticMember.expertise.slice(0, 3).join(', ')}.`,
-        type: 'profile',
-        url: `https://bluewave.fr/equipe/${slug}`,
-      },
-      alternates: {
-        canonical: `https://bluewave.fr/equipe/${slug}`,
-      },
-    }
-  }
-
-  const author = await getAuthorFromWP(slug)
   if (!author) {
     return { title: 'Membre non trouve | Bluewave' }
   }
 
+  const role = extraData?.role || 'Expert Bluewave'
+  const experience = extraData?.experience || ''
+
   return {
-    title: author.seo?.title || `${author.name} | Equipe Bluewave`,
-    description: author.seo?.metaDesc || author.description?.slice(0, 160),
+    title: `${author.name} - ${role}`,
+    description: author.seo?.metaDesc || `Decouvrez le profil de ${author.name}, ${role} chez Bluewave.${experience ? ` ${experience} d'experience en developpement web.` : ''}`,
+    openGraph: {
+      title: `${author.name} - ${role} | Bluewave`,
+      description: `${role}${experience ? ` avec ${experience} d'experience` : ''}. ${extraData?.expertise ? `Expert en ${extraData.expertise.slice(0, 3).join(', ')}.` : ''}`,
+      type: 'profile',
+      url: `https://bluewave.fr/equipe/${slug}`,
+      images: author.avatar?.url ? [{ url: author.avatar.url }] : [],
+    },
     alternates: {
       canonical: `https://bluewave.fr/equipe/${slug}`,
     },
@@ -175,28 +169,31 @@ function formatDate(dateString: string) {
 
 export default async function TeamMemberPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const staticMember = TEAM_MEMBERS[slug]
-  const wpAuthor = await getAuthorFromWP(slug)
+  const wpSlug = SLUG_MAPPING[slug] || slug
+  const wpAuthor = await getAuthorFromWP(wpSlug)
+  const extraData = TEAM_EXTRA_DATA[wpSlug]
 
-  if (!staticMember && !wpAuthor) {
+  if (!wpAuthor) {
     notFound()
   }
 
-  // Merge static data with WP data
-  const member = staticMember || {
-    name: wpAuthor!.name,
-    role: 'Expert Bluewave',
-    bio: wpAuthor!.description || '',
-    expertise: [],
-    certifications: [],
-    experience: '',
+  // Merge WordPress data with extra E-E-A-T data
+  const member = {
+    name: wpAuthor.name,
+    role: extraData?.role || 'Expert Bluewave',
+    bio: wpAuthor.description || '',
+    expertise: extraData?.expertise || [],
+    certifications: extraData?.certifications || [],
+    experience: extraData?.experience || '',
+    avatar: wpAuthor.avatar?.url,
     social: {
-      linkedin: wpAuthor!.seo?.social?.linkedIn,
-      twitter: wpAuthor!.seo?.social?.twitter,
+      linkedin: extraData?.social?.linkedin || wpAuthor.seo?.social?.linkedIn,
+      twitter: extraData?.social?.twitter || wpAuthor.seo?.social?.twitter,
+      github: extraData?.social?.github,
     }
   }
 
-  const posts = wpAuthor?.posts?.nodes || []
+  const posts = wpAuthor.posts?.nodes || []
 
   return (
     <main className="pt-20">
@@ -223,10 +220,10 @@ export default async function TeamMemberPage({ params }: { params: Promise<{ slu
             <div>
               <div className="card p-8 sticky top-24">
                 {/* Avatar */}
-                <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center text-white text-4xl font-bold mx-auto mb-6">
-                  {wpAuthor?.avatar?.url ? (
+                <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center text-white text-4xl font-bold mx-auto mb-6 overflow-hidden">
+                  {member.avatar ? (
                     <img
-                      src={wpAuthor.avatar.url}
+                      src={member.avatar}
                       alt={member.name}
                       className="w-full h-full rounded-2xl object-cover"
                     />

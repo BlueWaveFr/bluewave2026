@@ -9,17 +9,69 @@ export const metadata: Metadata = {
   },
 }
 
-const team = [
-  {
-    name: 'Stephane Geraut',
-    slug: 'stephane-geraut',
+const WORDPRESS_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://cms.bluewave.fr/graphql'
+
+// Mapping slug WordPress -> slug URL (inverse du mapping dans [slug])
+const WP_TO_URL_SLUG: Record<string, string> = {
+  'steph': 'stephane-geraut',
+}
+
+// Donnees supplementaires pour chaque membre
+const TEAM_EXTRA_DATA: Record<string, {
+  role: string
+  expertise: string[]
+  experience: string
+}> = {
+  'steph': {
     role: 'Fondateur & Lead Developer',
     expertise: ['Architecture web', 'React/Next.js', 'SEO technique'],
     experience: '15+ ans',
-  },
-]
+  }
+}
 
-export default function TeamPage() {
+interface WPUser {
+  id: string
+  name: string
+  slug: string
+  avatar?: {
+    url: string
+  }
+}
+
+async function getTeamMembers(): Promise<WPUser[]> {
+  try {
+    const res = await fetch(WORDPRESS_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+          query GetTeamMembers {
+            users(where: { role: ADMINISTRATOR }) {
+              nodes {
+                id
+                name
+                slug
+                avatar {
+                  url
+                }
+              }
+            }
+          }
+        `
+      }),
+      next: { revalidate: 60 }
+    })
+
+    const json = await res.json()
+    return json.data?.users?.nodes || []
+  } catch (error) {
+    console.error('Error fetching team members:', error)
+    return []
+  }
+}
+
+export default async function TeamPage() {
+  const wpMembers = await getTeamMembers()
   return (
     <main className="pt-20">
       {/* Hero */}
@@ -43,44 +95,59 @@ export default function TeamPage() {
       <section className="section-padding border-t border-dark-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {team.map((member) => (
-              <Link key={member.slug} href={`/equipe/${member.slug}`}>
-                <div className="group card-interactive p-8 text-center">
-                  {/* Avatar */}
-                  <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 group-hover:scale-105 transition-transform">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </div>
+            {wpMembers.map((wpMember) => {
+              const urlSlug = WP_TO_URL_SLUG[wpMember.slug] || wpMember.slug
+              const extraData = TEAM_EXTRA_DATA[wpMember.slug]
 
-                  <h2 className="text-xl font-bold text-white mb-1 group-hover:text-accent-400 transition-colors">
-                    {member.name}
-                  </h2>
-                  <p className="text-accent-400 mb-4">{member.role}</p>
+              return (
+                <Link key={wpMember.id} href={`/equipe/${urlSlug}`}>
+                  <div className="group card-interactive p-8 text-center">
+                    {/* Avatar */}
+                    <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 group-hover:scale-105 transition-transform overflow-hidden">
+                      {wpMember.avatar?.url ? (
+                        <img
+                          src={wpMember.avatar.url}
+                          alt={wpMember.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        wpMember.name.split(' ').map(n => n[0]).join('')
+                      )}
+                    </div>
 
-                  {member.experience && (
-                    <p className="text-dark-400 text-sm mb-4">
-                      {member.experience} d'experience
-                    </p>
-                  )}
+                    <h2 className="text-xl font-bold text-white mb-1 group-hover:text-accent-400 transition-colors">
+                      {wpMember.name}
+                    </h2>
+                    <p className="text-accent-400 mb-4">{extraData?.role || 'Expert Bluewave'}</p>
 
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {member.expertise.map((skill) => (
-                      <span key={skill} className="px-3 py-1 text-xs bg-dark-800/50 text-dark-300 rounded-full">
-                        {skill}
+                    {extraData?.experience && (
+                      <p className="text-dark-400 text-sm mb-4">
+                        {extraData.experience} d'experience
+                      </p>
+                    )}
+
+                    {extraData?.expertise && (
+                      <div className="flex flex-wrap justify-center gap-2">
+                        {extraData.expertise.map((skill) => (
+                          <span key={skill} className="px-3 py-1 text-xs bg-dark-800/50 text-dark-300 rounded-full">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="mt-6 pt-6 border-t border-dark-800/50">
+                      <span className="inline-flex items-center text-accent-400 text-sm font-medium group-hover:text-accent-300">
+                        Voir le profil
+                        <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
                       </span>
-                    ))}
+                    </div>
                   </div>
-
-                  <div className="mt-6 pt-6 border-t border-dark-800/50">
-                    <span className="inline-flex items-center text-accent-400 text-sm font-medium group-hover:text-accent-300">
-                      Voir le profil
-                      <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
