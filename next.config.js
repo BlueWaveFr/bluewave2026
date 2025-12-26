@@ -12,8 +12,26 @@ const nextConfig = {
       },
     ],
   },
-  // Activer si tu veux un export statique (sans SSR)
-  // output: 'export',
+  async headers() {
+    // Bloquer l'indexation sur les domaines Vercel
+    const isVercelPreview = process.env.VERCEL_ENV === 'preview'
+    const isVercelDev = process.env.VERCEL_URL?.includes('vercel.app')
+
+    if (isVercelPreview || isVercelDev) {
+      return [
+        {
+          source: '/:path*',
+          headers: [
+            {
+              key: 'X-Robots-Tag',
+              value: 'noindex, nofollow',
+            },
+          ],
+        },
+      ]
+    }
+    return []
+  },
 }
 
 module.exports = nextConfig
