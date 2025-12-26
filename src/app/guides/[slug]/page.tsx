@@ -53,8 +53,8 @@ async function getGuide(slug: string): Promise<Guide | null> {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: `
-          query GetGuide($slug: String!) {
-            guides(where: { name: $slug }, first: 1) {
+          query GetGuide($slug: [String]!) {
+            guides(where: { nameIn: $slug }, first: 1) {
               nodes {
                 id
                 title
@@ -99,7 +99,7 @@ async function getGuide(slug: string): Promise<Guide | null> {
             }
           }
         `,
-        variables: { slug }
+        variables: { slug: [slug] }
       }),
       cache: 'no-store'
     })
