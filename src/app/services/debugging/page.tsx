@@ -142,7 +142,7 @@ export default function DebuggingPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <div key={service.title} className="p-8 card">
-                <div className="w-12 h-12 rounded-xl bg-accent-500/10 border border-accent-500/20 text-accent-400 flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-red-500/20 border border-orange-500/30 text-orange-400 flex items-center justify-center mb-6">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">

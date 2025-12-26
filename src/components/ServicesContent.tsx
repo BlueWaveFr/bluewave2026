@@ -38,7 +38,7 @@ const services = [
       </svg>
     ),
     href: '/services/debugging',
-    gradient: 'from-cyan-500 to-cyan-600',
+    gradient: 'from-orange-500 to-red-500',
   },
   {
     title: 'Consulting Technique',
@@ -56,7 +56,7 @@ const services = [
       </svg>
     ),
     href: '/services/consulting',
-    gradient: 'from-accent-400 to-cyan-500',
+    gradient: 'from-purple-500 to-pink-500',
   },
   {
     title: 'Audit Technique & Logs',
@@ -74,7 +74,7 @@ const services = [
       </svg>
     ),
     href: '/services/audit',
-    gradient: 'from-cyan-400 to-accent-500',
+    gradient: 'from-green-500 to-emerald-500',
   },
 ]
 
