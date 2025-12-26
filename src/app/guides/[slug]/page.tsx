@@ -53,57 +53,59 @@ async function getGuide(slug: string): Promise<Guide | null> {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: `
-          query GetGuide($slug: ID!) {
-            guide(id: $slug, idType: SLUG) {
-              id
-              title
-              slug
-              date
-              modified
-              content
-              excerpt
-              featuredImage {
-                node {
-                  sourceUrl
-                  altText
-                }
-              }
-              guideCategories {
-                nodes {
-                  name
-                  slug
-                }
-              }
-              author {
-                node {
-                  name
-                  slug
-                  avatar {
-                    url
-                  }
-                  description
-                }
-              }
-              seo {
+          query GetGuide($slug: String!) {
+            guides(where: { name: $slug }, first: 1) {
+              nodes {
+                id
                 title
-                metaDesc
-                opengraphTitle
-                opengraphDescription
-                opengraphImage {
-                  sourceUrl
+                slug
+                date
+                modified
+                content
+                excerpt
+                featuredImage {
+                  node {
+                    sourceUrl
+                    altText
+                  }
                 }
-                canonical
+                guideCategories {
+                  nodes {
+                    name
+                    slug
+                  }
+                }
+                author {
+                  node {
+                    name
+                    slug
+                    avatar {
+                      url
+                    }
+                    description
+                  }
+                }
+                seo {
+                  title
+                  metaDesc
+                  opengraphTitle
+                  opengraphDescription
+                  opengraphImage {
+                    sourceUrl
+                  }
+                  canonical
+                }
               }
             }
           }
         `,
         variables: { slug }
       }),
-      next: { revalidate: 60 }
+      cache: 'no-store'
     })
 
     const json = await res.json()
-    return json.data?.guide || null
+    return json.data?.guides?.nodes?.[0] || null
   } catch (error) {
     console.error('Error fetching guide:', error)
     return null
