@@ -34,12 +34,13 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      {
-        // Redirection 301 des anciens articles vers guides
-        source: '/blog/:slug',
-        destination: '/guides/:slug',
-        permanent: true, // 301
-      },
+      // Redirections manuelles articles -> guides
+      // Ajoute ici les redirections specifiques :
+      // {
+      //   source: '/blog/ancien-slug',
+      //   destination: '/guides/nouveau-slug',
+      //   permanent: true,
+      // },
     ]
   },
 }
