@@ -210,7 +210,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
             {/* Author - Important pour E-E-A-T */}
             {guide.author?.node && (
-              <div className="flex items-center gap-4">
+              <Link href={`/equipe/${guide.author.node.slug}`} className="flex items-center gap-4 group">
                 {guide.author.node.avatar?.url && (
                   <img
                     src={guide.author.node.avatar.url}
@@ -219,12 +219,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                   />
                 )}
                 <div>
-                  <p className="text-white font-medium">
+                  <p className="text-white font-medium group-hover:text-accent-400 transition-colors">
                     {guide.author.node.name}
                   </p>
                   <p className="text-dark-400 text-sm">Expert Bluewave</p>
                 </div>
-              </div>
+              </Link>
             )}
           </div>
         </header>
@@ -264,14 +264,26 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 )}
                 <div>
                   <p className="text-dark-400 text-sm mb-1">Redige par</p>
-                  <p className="text-xl font-semibold text-white">
+                  <Link
+                    href={`/equipe/${guide.author.node.slug}`}
+                    className="text-xl font-semibold text-white hover:text-accent-400 transition-colors"
+                  >
                     {guide.author.node.name}
-                  </p>
+                  </Link>
                   {guide.author.node.description && (
                     <p className="text-dark-400 mt-2 leading-relaxed">
                       {guide.author.node.description}
                     </p>
                   )}
+                  <Link
+                    href={`/equipe/${guide.author.node.slug}`}
+                    className="inline-flex items-center text-accent-400 text-sm font-medium mt-4 hover:text-accent-300 transition-colors"
+                  >
+                    Voir le profil complet
+                    <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </div>

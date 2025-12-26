@@ -1,0 +1,88 @@
+# Bluewave - Agence Digitale
+
+> Bluewave est une agence digitale francaise specialisee en developpement web, SEO technique et solutions IA. Nous accompagnons les PME et grands comptes dans leur transformation digitale.
+
+## A propos
+
+Bluewave - BW Design SARL est une agence digitale basee a Bordeaux, France. Nous proposons des services de developpement web sur mesure, de SEO technique et de consulting.
+
+- Site web: https://bluewave.fr
+- Contact: https://bluewave.fr/contact
+
+## Services
+
+### Developpement Web
+- Applications React & Next.js
+- Sites e-commerce (Shopify, WooCommerce, Prestashop)
+- Plateformes SaaS
+- API & Integrations
+- Progressive Web Apps (PWA)
+- Sites WordPress headless
+
+En savoir plus: https://bluewave.fr/services/developpement
+
+### Debugging & Optimisation
+- Resolution de bugs
+- Optimisation des performances
+- Refactoring de code
+- Optimisation SEO technique
+- Migration & mise a jour
+
+En savoir plus: https://bluewave.fr/services/debugging
+
+### Consulting Technique
+- Conseil en architecture
+- Choix technologiques
+- Accompagnement technique
+- Formation
+- Audit de code
+- Direction technique (CTO as a Service)
+
+En savoir plus: https://bluewave.fr/services/consulting
+
+### Audit & Logs
+- Audit de performance
+- Audit SEO technique
+- Audit de securite
+- Audit de code
+- Configuration de monitoring
+- Analyse d'erreurs
+
+En savoir plus: https://bluewave.fr/services/audit
+
+## Contenu
+
+### Blog
+Articles techniques sur le developpement web, le SEO et les nouvelles technologies.
+https://bluewave.fr/blog
+
+### Guides
+Guides techniques approfondis sur des sujets comme React, Next.js, PWA et l'IA dans le developpement web.
+https://bluewave.fr/guides
+
+## Equipe
+
+### Steph
+Fondateur & Lead Developer avec 15+ ans d'experience en developpement web.
+Expertise: Architecture web, React/Next.js, SEO technique, WordPress, E-commerce.
+https://bluewave.fr/equipe/steph
+
+## Informations legales
+
+- Raison sociale: BW Design SARL
+- SIREN: 951 453 646
+- SIRET: 951 453 646 00014
+- TVA: FR53951453646
+- RCS: Bordeaux
+- Capital: 1 000,00 EUR
+
+Mentions legales: https://bluewave.fr/mentions-legales
+Politique de confidentialite: https://bluewave.fr/confidentialite
+
+## Technologies utilisees
+
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Backend: Node.js, Python
+- CMS: WordPress (headless avec WPGraphQL)
+- Hosting: Vercel
+- Database: PostgreSQL, MongoDB

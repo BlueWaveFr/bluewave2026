@@ -26,9 +26,11 @@ interface Post {
   author?: {
     node: {
       name: string
+      slug: string
       avatar?: {
         url: string
       }
+      description?: string
     }
   }
   seo?: {
@@ -75,9 +77,11 @@ async function getPost(slug: string): Promise<Post | null> {
               author {
                 node {
                   name
+                  slug
                   avatar {
                     url
                   }
+                  description
                 }
               }
               seo {
@@ -248,7 +252,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
             {/* Author */}
             {post.author?.node && (
-              <div className="flex items-center gap-4 mb-8">
+              <Link href={`/equipe/${post.author.node.slug}`} className="flex items-center gap-4 mb-8 group">
                 {post.author.node.avatar?.url && (
                   <img
                     src={post.author.node.avatar.url}
@@ -257,10 +261,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   />
                 )}
                 <div>
-                  <p className="text-white font-medium">{post.author.node.name}</p>
-                  <p className="text-dark-400 text-sm">Auteur</p>
+                  <p className="text-white font-medium group-hover:text-accent-400 transition-colors">{post.author.node.name}</p>
+                  <p className="text-dark-400 text-sm">Expert Bluewave</p>
                 </div>
-              </div>
+              </Link>
             )}
           </div>
         </header>
@@ -286,8 +290,48 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           />
         </div>
 
+        {/* Author Box - E-E-A-T */}
+        {post.author?.node && (
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-12 border-t border-dark-800/50">
+            <div className="card p-8">
+              <div className="flex items-start gap-6">
+                {post.author.node.avatar?.url && (
+                  <img
+                    src={post.author.node.avatar.url}
+                    alt={post.author.node.name}
+                    className="w-20 h-20 rounded-full bg-dark-800 flex-shrink-0"
+                  />
+                )}
+                <div>
+                  <p className="text-dark-400 text-sm mb-1">Redige par</p>
+                  <Link
+                    href={`/equipe/${post.author.node.slug}`}
+                    className="text-xl font-semibold text-white hover:text-accent-400 transition-colors"
+                  >
+                    {post.author.node.name}
+                  </Link>
+                  {post.author.node.description && (
+                    <p className="text-dark-400 mt-2 leading-relaxed">
+                      {post.author.node.description}
+                    </p>
+                  )}
+                  <Link
+                    href={`/equipe/${post.author.node.slug}`}
+                    className="inline-flex items-center text-accent-400 text-sm font-medium mt-4 hover:text-accent-300 transition-colors"
+                  >
+                    Voir le profil complet
+                    <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Share & Tags */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-dark-800/50 mt-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-dark-800/50">
           <div className="flex flex-wrap items-center justify-between gap-6">
             {/* Categories */}
             <div className="flex flex-wrap gap-2">
