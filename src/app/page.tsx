@@ -16,6 +16,8 @@ const services = [
   {
     title: 'Developpement Web',
     description: 'Applications web sur mesure, sites e-commerce et plateformes SaaS performantes.',
+    longDescription: 'De la conception a la mise en production, nous developpons des applications modernes avec React, Next.js et les dernieres technologies. Performance, accessibilite et SEO sont au coeur de chaque projet.',
+    features: ['Applications React & Next.js', 'Sites e-commerce', 'Plateformes SaaS', 'API & Integrations'],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -23,39 +25,49 @@ const services = [
     ),
     href: '/services/developpement',
     gradient: 'from-accent-500 to-accent-600',
+    image: '/images/services/developpement.png',
   },
   {
     title: 'Debugging & Optimisation',
     description: 'Resolution de bugs complexes, optimisation des performances et de la stabilite.',
+    longDescription: 'Votre application a des bugs ou des lenteurs ? Nous intervenons rapidement pour diagnostiquer et resoudre vos problemes techniques. Core Web Vitals, performance et stabilite garantis.',
+    features: ['Resolution de bugs', 'Optimisation performance', 'Refactoring de code', 'Migration & mise a jour'],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     href: '/services/debugging',
-    gradient: 'from-cyan-500 to-cyan-600',
+    gradient: 'from-orange-500 to-red-500',
+    image: '/images/services/debugging.png',
   },
   {
     title: 'Consulting Technique',
     description: 'Accompagnement strategique pour vos projets digitaux et transformation numerique.',
+    longDescription: 'Beneficiez de notre expertise pour prendre les bonnes decisions techniques. Architecture, choix technologiques, formation d\'equipe et accompagnement sur mesure.',
+    features: ['Conseil en architecture', 'Choix technologiques', 'Formation equipe', 'CTO as a Service'],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     ),
     href: '/services/consulting',
-    gradient: 'from-accent-400 to-cyan-500',
+    gradient: 'from-purple-500 to-pink-500',
+    image: '/images/services/consulting.png',
   },
   {
     title: 'Audit Technique & Logs',
     description: 'Analyse approfondie de vos infrastructures, audit SEO technique et monitoring.',
+    longDescription: 'Un diagnostic complet de votre application : performance, SEO technique, securite et qualite de code. Rapport detaille avec plan d\'action priorise.',
+    features: ['Audit de performance', 'Audit SEO technique', 'Audit de securite', 'Configuration monitoring'],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
     ),
     href: '/services/audit',
-    gradient: 'from-cyan-400 to-accent-500',
+    gradient: 'from-green-500 to-emerald-500',
+    image: '/images/services/audit.png',
   },
 ]
 
@@ -444,14 +456,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Services Section - Linear style full-width */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center"
           >
             <span className="badge mb-4">Nos expertises</span>
             <h2 className="heading-lg text-white mb-4">
@@ -461,36 +473,92 @@ export default function Home() {
               Une approche technique et strategique pour propulser votre presence digitale.
             </p>
           </motion.div>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Link href={service.href}>
-                  <div className="group h-full p-8 card-interactive">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+        {/* Full-width service blocks */}
+        <div className="space-y-0">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className={`relative py-24 ${index % 2 === 0 ? 'bg-dark-950' : 'bg-dark-900/50'}`}
+            >
+              {/* Subtle gradient background */}
+              <div className={`absolute inset-0 bg-gradient-to-r ${index % 2 === 0 ? 'from-accent-500/5 to-transparent' : 'from-transparent to-cyan-500/5'}`} />
+
+              <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                  {/* Content */}
+                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-6`}>
                       {service.icon}
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-accent-400 transition-colors">
+                    <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-dark-400 mb-4">{service.description}</p>
-                    <span className="inline-flex items-center text-accent-400 text-sm font-medium group-hover:text-accent-300">
+                    <p className="text-dark-300 text-lg mb-6 leading-relaxed">
+                      {service.longDescription}
+                    </p>
+
+                    {/* Features list */}
+                    <ul className="grid grid-cols-2 gap-3 mb-8">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-dark-400">
+                          <svg className="w-4 h-4 text-accent-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link
+                      href={service.href}
+                      className="group inline-flex items-center text-accent-400 font-medium hover:text-accent-300 transition-colors"
+                    >
                       En savoir plus
-                      <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                    </span>
+                    </Link>
                   </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+
+                  {/* Image/Visual */}
+                  <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
+                    <div className="relative">
+                      {/* Main image container */}
+                      <div className="relative rounded-2xl overflow-hidden border border-dark-800/50 bg-dark-900/80 backdrop-blur-sm shadow-2xl">
+                        {/* Window chrome */}
+                        <div className="flex items-center gap-2 px-4 py-3 border-b border-dark-800/50 bg-dark-900/50">
+                          <div className="flex gap-1.5">
+                            <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                          </div>
+                          <span className="ml-2 text-dark-500 text-xs font-mono">{service.title.toLowerCase().replace(/ /g, '-')}</span>
+                        </div>
+
+                        {/* Placeholder for actual screenshot */}
+                        <div className="aspect-[4/3] bg-gradient-to-br from-dark-800/50 to-dark-900/50 flex items-center justify-center">
+                          <div className={`w-24 h-24 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-20 flex items-center justify-center`}>
+                            <div className="text-white opacity-50 scale-150">
+                              {service.icon}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Decorative elements */}
+                      <div className={`absolute -z-10 w-64 h-64 rounded-full blur-3xl opacity-20 bg-gradient-to-br ${service.gradient} ${index % 2 === 0 ? '-top-10 -right-10' : '-bottom-10 -left-10'}`} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
