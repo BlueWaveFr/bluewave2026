@@ -69,7 +69,7 @@ async function getGuides(): Promise<Guide[]> {
           }
         `
       }),
-      next: { revalidate: 60 }
+      next: { revalidate: 10 }
     })
 
     const json = await res.json()
@@ -98,7 +98,7 @@ async function getGuideCategories(): Promise<Category[]> {
           }
         `
       }),
-      next: { revalidate: 60 }
+      next: { revalidate: 10 }
     })
 
     const json = await res.json()
