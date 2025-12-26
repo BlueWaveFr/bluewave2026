@@ -25,7 +25,7 @@ const services = [
     ),
     href: '/services/developpement',
     gradient: 'from-accent-500 to-accent-600',
-    image: '/images/services/developpement.png',
+    image: '/images/services/developpement.webp',
   },
   {
     title: 'Debugging & Optimisation',
@@ -39,7 +39,7 @@ const services = [
     ),
     href: '/services/debugging',
     gradient: 'from-orange-500 to-red-500',
-    image: '/images/services/debugging.png',
+    image: '/images/services/debugging.webp',
   },
   {
     title: 'Consulting Technique',
@@ -53,7 +53,7 @@ const services = [
     ),
     href: '/services/consulting',
     gradient: 'from-purple-500 to-pink-500',
-    image: '/images/services/consulting.png',
+    image: '/images/services/consulting.webp',
   },
   {
     title: 'Audit Technique & Logs',
@@ -67,7 +67,7 @@ const services = [
     ),
     href: '/services/audit',
     gradient: 'from-green-500 to-emerald-500',
-    image: '/images/services/audit.png',
+    image: '/images/services/audit.webp',
   },
 ]
 
@@ -456,9 +456,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section - Linear style full-width */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      {/* Services Section - Linear style with perspective images */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -475,41 +475,36 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Full-width service blocks */}
-        <div className="space-y-0">
+        {/* Full-width service blocks with perspective images */}
+        <div className="space-y-32 lg:space-y-48">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className={`relative py-24 ${index % 2 === 0 ? 'bg-dark-950' : 'bg-dark-900/50'}`}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="relative"
             >
-              {/* Subtle gradient background */}
-              <div className={`absolute inset-0 bg-gradient-to-r ${index % 2 === 0 ? 'from-accent-500/5 to-transparent' : 'from-transparent to-cyan-500/5'}`} />
-
-              <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
-                  {/* Content */}
-                  <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-6`}>
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className={`grid lg:grid-cols-12 gap-8 lg:gap-12 items-center ${index % 2 === 1 ? '' : ''}`}>
+                  {/* Content - spans 5 columns */}
+                  <div className={`lg:col-span-5 ${index % 2 === 1 ? 'lg:order-2 lg:col-start-8' : 'lg:order-1'}`}>
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-5 shadow-lg`}>
                       {service.icon}
                     </div>
-                    <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-white mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-dark-300 text-lg mb-6 leading-relaxed">
+                    <p className="text-dark-400 text-base mb-5 leading-relaxed">
                       {service.longDescription}
                     </p>
 
-                    {/* Features list */}
-                    <ul className="grid grid-cols-2 gap-3 mb-8">
+                    {/* Features list - minimal style */}
+                    <ul className="space-y-2 mb-6">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-dark-400">
-                          <svg className="w-4 h-4 text-accent-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
+                        <li key={feature} className="flex items-center gap-2.5 text-dark-300">
+                          <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${service.gradient}`} />
                           <span className="text-sm">{feature}</span>
                         </li>
                       ))}
@@ -517,42 +512,97 @@ export default function Home() {
 
                     <Link
                       href={service.href}
-                      className="group inline-flex items-center text-accent-400 font-medium hover:text-accent-300 transition-colors"
+                      className="group inline-flex items-center text-sm text-white/70 hover:text-white transition-colors"
                     >
-                      En savoir plus
-                      <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      Decouvrir
+                      <svg className="ml-1.5 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </Link>
                   </div>
 
-                  {/* Image/Visual */}
-                  <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
-                    <div className="relative">
-                      {/* Main image container */}
-                      <div className="relative rounded-2xl overflow-hidden border border-dark-800/50 bg-dark-900/80 backdrop-blur-sm shadow-2xl">
-                        {/* Window chrome */}
-                        <div className="flex items-center gap-2 px-4 py-3 border-b border-dark-800/50 bg-dark-900/50">
-                          <div className="flex gap-1.5">
-                            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  {/* Image with 3D perspective - spans 7 columns */}
+                  <div className={`lg:col-span-7 ${index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div
+                      className="relative group"
+                      style={{ perspective: '1200px' }}
+                    >
+                      {/* Image container with perspective transform */}
+                      <motion.div
+                        className={`relative ${index % 2 === 0 ? 'lg:-mr-20 xl:-mr-32' : 'lg:-ml-20 xl:-ml-32'}`}
+                        whileHover={{
+                          rotateY: index % 2 === 0 ? -2 : 2,
+                          rotateX: 2,
+                          scale: 1.02
+                        }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        style={{
+                          transformStyle: 'preserve-3d',
+                          transform: `rotateY(${index % 2 === 0 ? '-8deg' : '8deg'}) rotateX(4deg)`,
+                        }}
+                      >
+                        {/* Main image */}
+                        <div className="relative rounded-xl overflow-hidden shadow-2xl bg-dark-900/50 border border-dark-800/30">
+                          {/* Actual image or gradient placeholder */}
+                          <div className="aspect-[16/10] relative overflow-hidden">
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                // Fallback to gradient if image doesn't exist
+                                const target = e.target as HTMLImageElement
+                                target.style.display = 'none'
+                                const parent = target.parentElement
+                                if (parent) {
+                                  parent.classList.add('bg-gradient-to-br', 'from-dark-800', 'to-dark-900')
+                                }
+                              }}
+                            />
+                            {/* Gradient overlay for polish */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-dark-950/60 via-transparent to-transparent" />
+                            {/* Subtle gradient accent */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-10`} />
                           </div>
-                          <span className="ml-2 text-dark-500 text-xs font-mono">{service.title.toLowerCase().replace(/ /g, '-')}</span>
                         </div>
 
-                        {/* Placeholder for actual screenshot */}
-                        <div className="aspect-[4/3] bg-gradient-to-br from-dark-800/50 to-dark-900/50 flex items-center justify-center">
-                          <div className={`w-24 h-24 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-20 flex items-center justify-center`}>
-                            <div className="text-white opacity-50 scale-150">
-                              {service.icon}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        {/* Reflection effect */}
+                        <div
+                          className="absolute inset-0 rounded-xl"
+                          style={{
+                            background: `linear-gradient(105deg, rgba(255,255,255,0.1) 0%, transparent 50%, transparent 100%)`,
+                            pointerEvents: 'none'
+                          }}
+                        />
+                      </motion.div>
 
-                      {/* Decorative elements */}
-                      <div className={`absolute -z-10 w-64 h-64 rounded-full blur-3xl opacity-20 bg-gradient-to-br ${service.gradient} ${index % 2 === 0 ? '-top-10 -right-10' : '-bottom-10 -left-10'}`} />
+                      {/* Ambient glow behind image */}
+                      <div
+                        className={`absolute -inset-4 -z-10 rounded-3xl blur-3xl opacity-30 bg-gradient-to-br ${service.gradient} group-hover:opacity-40 transition-opacity duration-500`}
+                        style={{
+                          transform: `rotateY(${index % 2 === 0 ? '-8deg' : '8deg'}) rotateX(4deg)`,
+                        }}
+                      />
+
+                      {/* Floating accent elements */}
+                      <motion.div
+                        className={`absolute w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-80 shadow-lg -z-10`}
+                        style={{
+                          top: index % 2 === 0 ? '-10%' : 'auto',
+                          bottom: index % 2 === 0 ? 'auto' : '-8%',
+                          right: index % 2 === 0 ? '5%' : 'auto',
+                          left: index % 2 === 0 ? 'auto' : '5%',
+                        }}
+                        animate={{
+                          y: [0, -8, 0],
+                          rotate: [0, 3, 0],
+                        }}
+                        transition={{
+                          duration: 6,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
