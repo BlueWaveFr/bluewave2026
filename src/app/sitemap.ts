@@ -119,7 +119,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
-      url: `${SITE_URL}/about`,
+      url: `${SITE_URL}/societe`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -135,12 +135,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/equipe/stephane-geraut`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
     {
       url: `${SITE_URL}/equipe/steph`,

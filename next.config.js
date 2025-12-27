@@ -103,6 +103,18 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Redirections equipe
+      {
+        source: '/equipe/stephane-geraut',
+        destination: '/equipe/steph',
+        permanent: true,
+      },
+      // Redirection about -> societe
+      {
+        source: '/about',
+        destination: '/societe',
+        permanent: true,
+      },
     ]
   },
 }

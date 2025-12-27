@@ -13,7 +13,7 @@ const footerLinks = {
     { name: 'Guides', href: '/guides' },
   ],
   entreprise: [
-    { name: 'A propos', href: '/about' },
+    { name: 'La Societe', href: '/societe' },
     { name: 'Contact', href: '/contact' },
     { name: 'Carrieres', href: '/careers' },
   ],
