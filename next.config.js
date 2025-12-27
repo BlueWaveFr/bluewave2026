@@ -45,6 +45,64 @@ const nextConfig = {
         destination: '/guides/guide-complet-integrer-ia-dans-le-developpement-web',
         permanent: true,
       },
+      // Redirections 301 : anciennes URLs WordPress -> services
+      {
+        source: '/index.php/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/projects/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/projects_cat/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/about/:path*',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/portfolio-four-columns',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/create-the-lifestyle-you-really-desire-this-world',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/list-of-the-best-investment-projects',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/2019/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/2020/:path*',
+        destination: '/services',
+        permanent: true,
+      },
+      // Redirection query strings WordPress (doing_wp_cron)
+      {
+        source: '/',
+        has: [
+          {
+            type: 'query',
+            key: 'doing_wp_cron',
+          },
+        ],
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 }
