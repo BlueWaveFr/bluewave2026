@@ -13,11 +13,10 @@ const nextConfig = {
     ],
   },
   async headers() {
-    // Bloquer l'indexation sur les domaines Vercel
-    const isVercelPreview = process.env.VERCEL_ENV === 'preview'
-    const isVercelDev = process.env.VERCEL_URL?.includes('vercel.app')
+    // Bloquer l'indexation sauf en production sur le domaine principal
+    const isProduction = process.env.VERCEL_ENV === 'production'
 
-    if (isVercelPreview || isVercelDev) {
+    if (!isProduction) {
       return [
         {
           source: '/:path*',
