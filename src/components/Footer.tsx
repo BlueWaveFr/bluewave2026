@@ -9,6 +9,7 @@ const footerLinks = {
     { name: 'Audit & Logs', href: '/services/audit' },
   ],
   ressources: [
+    { name: 'Realisations', href: '/realisations' },
     { name: 'Blog', href: '/blog' },
     { name: 'Guides', href: '/guides' },
   ],
