@@ -4,7 +4,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
-import { GoogleTagManagerHead, GoogleTagManagerBody } from '@/components/GoogleTagManager'
+import { GoogleTagManager } from '@/components/GoogleTagManager'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -68,8 +68,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={inter.variable}>
       <body className="min-h-screen flex flex-col">
-        <GoogleTagManagerHead />
-        <GoogleTagManagerBody />
+        <GoogleTagManager />
         <Header />
         <div className="flex-1">
           {children}
