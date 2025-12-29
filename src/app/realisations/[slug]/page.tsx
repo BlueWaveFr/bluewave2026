@@ -21,10 +21,12 @@ interface Realisation {
       slug: string
     }>
   }
-  projectUrl: string
-  technologies: string
-  features: string
-  results: string
+  detailsDuProjet: {
+    projectUrl: string
+    technologies: string
+    features: string
+    results: string
+  } | null
 }
 
 interface PageProps {
@@ -56,10 +58,12 @@ async function getRealisation(slug: string): Promise<Realisation | null> {
                   slug
                 }
               }
-              projectUrl
-              technologies
-              features
-              results
+              detailsDuProjet {
+                projectUrl
+                technologies
+                features
+                results
+              }
             }
           }
         `,
@@ -167,9 +171,9 @@ export default async function ProjectPage({ params }: PageProps) {
   }
 
   const category = realisation.realisationCategories?.nodes?.[0]?.name || 'Projet'
-  const technologies = parseTechnologies(realisation.technologies)
-  const features = parseLines(realisation.features)
-  const results = parseLines(realisation.results)
+  const technologies = parseTechnologies(realisation.detailsDuProjet?.technologies || '')
+  const features = parseLines(realisation.detailsDuProjet?.features || '')
+  const results = parseLines(realisation.detailsDuProjet?.results || '')
 
   const allRealisations = await getAllRealisations()
   const otherProjects = allRealisations.filter(p => p.slug !== slug).slice(0, 2)
@@ -222,9 +226,9 @@ export default async function ProjectPage({ params }: PageProps) {
 
               {/* CTA */}
               <div className="flex flex-wrap gap-4">
-                {realisation.projectUrl && (
+                {realisation.detailsDuProjet?.projectUrl && (
                   <a
-                    href={realisation.projectUrl}
+                    href={realisation.detailsDuProjet.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-6 py-3 bg-accent-500 text-white font-medium rounded-lg hover:bg-accent-600 transition-all"

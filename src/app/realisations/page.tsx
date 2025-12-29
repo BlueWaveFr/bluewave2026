@@ -32,10 +32,12 @@ interface Realisation {
       slug: string
     }>
   }
-  projectUrl: string
-  technologies: string
-  features: string
-  results: string
+  detailsDuProjet: {
+    projectUrl: string
+    technologies: string
+    features: string
+    results: string
+  } | null
 }
 
 async function getRealisations(): Promise<Realisation[]> {
@@ -63,10 +65,12 @@ async function getRealisations(): Promise<Realisation[]> {
                     slug
                   }
                 }
-                projectUrl
-                technologies
-                features
-                results
+                detailsDuProjet {
+                  projectUrl
+                  technologies
+                  features
+                  results
+                }
               }
             }
           }
@@ -127,7 +131,7 @@ export default async function RealisationsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {realisations.map((project) => {
                 const category = project.realisationCategories?.nodes?.[0]?.name || 'Projet'
-                const technologies = parseTechnologies(project.technologies)
+                const technologies = parseTechnologies(project.detailsDuProjet?.technologies || '')
 
                 return (
                   <article key={project.id} className="group">
