@@ -35,8 +35,8 @@ interface Realisation {
   detailsDuProjet: {
     projectUrl: string
     technologies: string
-    features: string
-    results: string
+    fonctionnalites: string
+    resultats: string
   } | null
 }
 
@@ -68,8 +68,8 @@ async function getRealisations(): Promise<Realisation[]> {
                 detailsDuProjet {
                   projectUrl
                   technologies
-                  features
-                  results
+                  fonctionnalites
+                  resultats
                 }
               }
             }

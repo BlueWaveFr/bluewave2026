@@ -24,8 +24,8 @@ interface Realisation {
   detailsDuProjet: {
     projectUrl: string
     technologies: string
-    features: string
-    results: string
+    fonctionnalites: string
+    resultats: string
   } | null
 }
 
@@ -61,8 +61,8 @@ async function getRealisation(slug: string): Promise<Realisation | null> {
               detailsDuProjet {
                 projectUrl
                 technologies
-                features
-                results
+                fonctionnalites
+                resultats
               }
             }
           }
@@ -172,8 +172,8 @@ export default async function ProjectPage({ params }: PageProps) {
 
   const category = realisation.realisationCategories?.nodes?.[0]?.name || 'Projet'
   const technologies = parseTechnologies(realisation.detailsDuProjet?.technologies || '')
-  const features = parseLines(realisation.detailsDuProjet?.features || '')
-  const results = parseLines(realisation.detailsDuProjet?.results || '')
+  const features = parseLines(realisation.detailsDuProjet?.fonctionnalites || '')
+  const results = parseLines(realisation.detailsDuProjet?.resultats || '')
 
   const allRealisations = await getAllRealisations()
   const otherProjects = allRealisations.filter(p => p.slug !== slug).slice(0, 2)
