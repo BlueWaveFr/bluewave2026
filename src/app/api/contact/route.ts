@@ -6,6 +6,30 @@ interface ContactFormData {
   company?: string
   budget?: string
   message: string
+  recaptchaToken?: string
+}
+
+async function verifyRecaptcha(token: string): Promise<{ success: boolean; score?: number }> {
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY
+
+  if (!secretKey) {
+    console.warn('RECAPTCHA_SECRET_KEY not configured, skipping verification')
+    return { success: true }
+  }
+
+  try {
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${secretKey}&response=${token}`,
+    })
+
+    const data = await response.json()
+    return { success: data.success && data.score >= 0.5, score: data.score }
+  } catch (error) {
+    console.error('reCAPTCHA verification error:', error)
+    return { success: false }
+  }
 }
 
 // Email de confirmation pour le visiteur (HTML)
@@ -73,6 +97,18 @@ function getConfirmationEmailHtml(name: string): string {
 export async function POST(request: NextRequest) {
   try {
     const data: ContactFormData = await request.json()
+
+    // reCAPTCHA verification
+    if (data.recaptchaToken) {
+      const recaptchaResult = await verifyRecaptcha(data.recaptchaToken)
+      if (!recaptchaResult.success) {
+        console.log('reCAPTCHA failed, score:', recaptchaResult.score)
+        return NextResponse.json(
+          { error: 'Verification anti-spam echouee. Veuillez reessayer.' },
+          { status: 400 }
+        )
+      }
+    }
 
     // Validation
     if (!data.name || !data.email || !data.message) {

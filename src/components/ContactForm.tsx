@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
@@ -15,17 +16,26 @@ export default function ContactForm() {
   })
   const [status, setStatus] = useState<FormStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
     setErrorMessage('')
 
+    if (!executeRecaptcha) {
+      setStatus('error')
+      setErrorMessage('reCAPTCHA non disponible. Veuillez rafraichir la page.')
+      return
+    }
+
     try {
+      const recaptchaToken = await executeRecaptcha('contact_form')
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       })
 
       const data = await response.json()
@@ -42,7 +52,7 @@ export default function ContactForm() {
       setStatus('error')
       setErrorMessage('Impossible de contacter le serveur. Veuillez reessayer.')
     }
-  }
+  }, [executeRecaptcha, formData])
 
   return (
     <div className="grid lg:grid-cols-2 gap-16">

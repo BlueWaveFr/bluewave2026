@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import { GoogleTagManager } from '@/components/GoogleTagManager'
+import RecaptchaProvider from '@/components/RecaptchaProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -69,12 +70,14 @@ export default function RootLayout({
     <html lang="fr" className={inter.variable}>
       <body className="min-h-screen flex flex-col">
         <GoogleTagManager />
-        <Header />
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer />
-        <CookieConsent />
+        <RecaptchaProvider>
+          <Header />
+          <div className="flex-1">
+            {children}
+          </div>
+          <Footer />
+          <CookieConsent />
+        </RecaptchaProvider>
       </body>
     </html>
   )
