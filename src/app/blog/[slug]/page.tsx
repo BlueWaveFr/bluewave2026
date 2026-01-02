@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import TableOfContents from '@/components/TableOfContents'
 
 const WORDPRESS_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://cms.bluewave.fr/graphql'
 
@@ -282,12 +283,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         )}
 
-        {/* Content */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className="prose-dark"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+        {/* Content with TOC */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1fr_280px] gap-12">
+            <div
+              className="prose-dark max-w-none"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+            <aside className="hidden lg:block">
+              <TableOfContents content={post.content} />
+            </aside>
+          </div>
         </div>
 
         {/* Author Box - E-E-A-T */}
