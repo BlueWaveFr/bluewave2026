@@ -40,7 +40,7 @@ export default function Header() {
             <Image
               src="/images/logo.webp"
               alt="Bluewave"
-              width={160}
+              width={40}
               height={40}
               className="h-8 lg:h-10 w-auto"
               priority

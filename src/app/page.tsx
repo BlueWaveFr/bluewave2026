@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { fadeInUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/animations'
 
@@ -531,19 +532,13 @@ export default function Home() {
                         <div className="relative rounded-xl overflow-hidden shadow-2xl bg-dark-900/50 border border-dark-800/30">
                           {/* Actual image or gradient placeholder */}
                           <div className="aspect-[16/10] relative overflow-hidden">
-                            <img
+                            <Image
                               src={service.image}
                               alt={service.title}
-                              className="w-full h-full object-cover"
-                              onError={(e) => {
-                                // Fallback to gradient if image doesn't exist
-                                const target = e.target as HTMLImageElement
-                                target.style.display = 'none'
-                                const parent = target.parentElement
-                                if (parent) {
-                                  parent.classList.add('bg-gradient-to-br', 'from-dark-800', 'to-dark-900')
-                                }
-                              }}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
+                              className="object-cover"
+                              quality={80}
                             />
                             {/* Gradient overlay for polish */}
                             <div className="absolute inset-0 bg-gradient-to-t from-dark-950/60 via-transparent to-transparent" />
