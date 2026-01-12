@@ -9,10 +9,10 @@ const services = [
     description: 'Applications web sur mesure, sites e-commerce et plateformes SaaS. Nous concevons des solutions robustes et evolutives adaptees a vos besoins specifiques.',
     features: [
       'Sites web et applications React/Next.js',
-      'Plateformes e-commerce (Prestashop, WooCommerce)',
       'Applications SaaS sur mesure',
       'Integrations API et automatisations',
       'Progressive Web Apps (PWA)',
+      'WordPress Headless',
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -21,6 +21,25 @@ const services = [
     ),
     href: '/services/developpement',
     gradient: 'from-accent-500 to-accent-600',
+  },
+  {
+    title: 'E-commerce PrestaShop',
+    description: 'Expert PrestaShop certifie. Creation de boutiques e-commerce performantes, modules sur mesure et accompagnement complet de votre activite en ligne.',
+    features: [
+      'Creation de boutique PrestaShop',
+      'Modules et themes sur mesure',
+      'Migration depuis autres plateformes',
+      'Optimisation performance et SEO',
+      'Maintenance et support',
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    ),
+    href: '/services/prestashop',
+    gradient: 'from-pink-500 to-pink-600',
+    badge: 'Expert',
   },
   {
     title: 'Debugging & Optimisation',
@@ -142,9 +161,16 @@ export default function ServicesContent() {
                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} text-white flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-200`}>
                       {service.icon}
                     </div>
-                    <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-accent-400 transition-colors">
-                      {service.title}
-                    </h2>
+                    <div className="flex items-center gap-3 mb-4">
+                      <h2 className="text-2xl font-bold text-white group-hover:text-accent-400 transition-colors">
+                        {service.title}
+                      </h2>
+                      {'badge' in service && service.badge && (
+                        <span className="px-2 py-0.5 bg-pink-500/20 border border-pink-500/30 text-pink-400 text-xs font-medium rounded-full">
+                          {service.badge}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-dark-400 mb-6 leading-relaxed">
                       {service.description}
                     </p>
