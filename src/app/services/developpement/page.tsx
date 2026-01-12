@@ -13,6 +13,8 @@ const features = [
     title: 'E-commerce Prestashop',
     description: 'Expert Prestashop certifie. Boutiques en ligne performantes, modules sur mesure et integrations paiement securisees.',
     visual: 'prestashop',
+    link: '/services/prestashop',
+    linkText: 'Notre expertise PrestaShop',
   },
   {
     title: 'SaaS & Plateformes',
@@ -908,15 +910,28 @@ export default function DeveloppementPage() {
                     <p className="text-dark-400 text-lg leading-relaxed mb-6">
                       {feature.description}
                     </p>
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center text-accent-400 hover:text-accent-300 font-medium group"
-                    >
-                      Discuter de votre projet
-                      <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
+                    <div className="flex flex-wrap items-center gap-4">
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center text-accent-400 hover:text-accent-300 font-medium group"
+                      >
+                        Discuter de votre projet
+                        <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
+                      {'link' in feature && feature.link && (
+                        <Link
+                          href={feature.link}
+                          className="inline-flex items-center px-4 py-2 bg-pink-500/20 border border-pink-500/30 text-pink-400 hover:bg-pink-500/30 font-medium rounded-lg transition-colors group"
+                        >
+                          {'linkText' in feature ? feature.linkText : 'En savoir plus'}
+                          <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </Link>
+                      )}
+                    </div>
                   </div>
 
                   {/* Visual */}
