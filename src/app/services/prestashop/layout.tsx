@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Agence PrestaShop - Creation Boutique E-commerce Sur Mesure | Bluewave',
+  title: 'Agence PrestaShop - Creation Boutique E-commerce Sur Mesure',
   description: 'Expert PrestaShop certifie. Creation de boutiques e-commerce, developpement de modules sur mesure, migration et maintenance. Devis gratuit sous 48h.',
   keywords: [
     'agence prestashop',
