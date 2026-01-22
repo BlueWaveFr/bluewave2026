@@ -8,6 +8,8 @@ const features = [
     title: 'Applications React & Next.js',
     description: 'Interfaces modernes et performantes avec les frameworks JavaScript les plus populaires. SSR, SSG et ISR pour des performances optimales.',
     visual: 'react',
+    link: '/services/developpement/react',
+    linkText: 'En savoir plus',
   },
   {
     title: 'E-commerce Prestashop',
@@ -20,21 +22,29 @@ const features = [
     title: 'SaaS & Plateformes',
     description: 'Applications multi-utilisateurs avec authentification, abonnements Stripe et tableaux de bord temps reel.',
     visual: 'saas',
+    link: '/services/developpement/saas',
+    linkText: 'En savoir plus',
   },
   {
     title: 'API & Integrations',
     description: 'Developpement d\'APIs RESTful et GraphQL, integrations tierces (CRM, ERP, paiement) et automatisations.',
     visual: 'api',
+    link: '/services/developpement/api',
+    linkText: 'En savoir plus',
   },
   {
     title: 'Progressive Web Apps',
     description: 'Applications web installables fonctionnant hors ligne avec notifications push et experience native.',
     visual: 'pwa',
+    link: '/services/developpement/pwa',
+    linkText: 'En savoir plus',
   },
   {
     title: 'Sites WordPress',
     description: 'Sites vitrines et blogs avec WordPress headless, themes sur mesure et optimisation SEO avancee.',
     visual: 'wordpress',
+    link: '/services/developpement/wordpress',
+    linkText: 'En savoir plus',
   },
 ]
 
