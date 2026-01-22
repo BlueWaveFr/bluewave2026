@@ -13,6 +13,8 @@ const audits = [
   {
     title: 'Audit de performance',
     description: 'Analyse complete des temps de chargement, Core Web Vitals et optimisations possibles.',
+    href: '/services/audit/performance',
+    color: 'orange',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -23,6 +25,8 @@ const audits = [
   {
     title: 'Audit SEO technique',
     description: 'Verification de l\'indexation, structure du site et facteurs techniques impactant le SEO.',
+    href: '/services/audit/seo',
+    color: 'blue',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -31,8 +35,22 @@ const audits = [
     items: ['Crawlabilite', 'Donnees structurees', 'Meta tags', 'Sitemap & robots.txt'],
   },
   {
+    title: 'Audit Core Web Vitals',
+    description: 'Analyse approfondie des metriques LCP, CLS et INP pour optimiser l\'experience utilisateur.',
+    href: '/services/audit/core-web-vitals',
+    color: 'purple',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+    ),
+    items: ['LCP', 'CLS', 'INP', 'Page Experience'],
+  },
+  {
     title: 'Audit de securite',
     description: 'Identification des vulnerabilites et recommandations pour securiser votre application.',
+    href: null,
+    color: 'green',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -43,6 +61,8 @@ const audits = [
   {
     title: 'Audit de code',
     description: 'Revue approfondie de votre codebase : qualite, maintenabilite et bonnes pratiques.',
+    href: null,
+    color: 'green',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -119,15 +139,28 @@ export default function AuditPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {audits.map((audit) => (
-              <div key={audit.title} className="p-8 card">
+            {audits.map((audit) => {
+              const colorClasses = {
+                orange: 'from-orange-500/20 to-red-500/20 border-orange-500/30 text-orange-400 hover:border-orange-500/50',
+                blue: 'from-blue-500/20 to-cyan-500/20 border-blue-500/30 text-blue-400 hover:border-blue-500/50',
+                purple: 'from-purple-500/20 to-pink-500/20 border-purple-500/30 text-purple-400 hover:border-purple-500/50',
+                green: 'from-green-500/20 to-emerald-500/20 border-green-500/30 text-green-400 hover:border-green-500/50',
+              }
+              const classes = colorClasses[audit.color as keyof typeof colorClasses]
+
+              const CardContent = (
                 <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 text-green-400 flex items-center justify-center flex-shrink-0">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${classes.split(' hover:')[0]} flex items-center justify-center flex-shrink-0`}>
                     {audit.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
+                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-white transition-colors">
                       {audit.title}
+                      {audit.href && (
+                        <svg className="w-4 h-4 inline-block ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      )}
                     </h3>
                     <p className="text-dark-400 mb-4">
                       {audit.description}
@@ -141,8 +174,18 @@ export default function AuditPage() {
                     </ul>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+
+              return audit.href ? (
+                <Link key={audit.title} href={audit.href} className={`p-8 card group transition-colors ${classes.split(' ').pop()}`}>
+                  {CardContent}
+                </Link>
+              ) : (
+                <div key={audit.title} className="p-8 card">
+                  {CardContent}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
