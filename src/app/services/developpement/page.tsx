@@ -13,7 +13,7 @@ const features = [
   },
   {
     title: 'E-commerce Prestashop',
-    description: 'Expert Prestashop certifie. Boutiques en ligne performantes, modules sur mesure et integrations paiement securisees.',
+    description: 'Expert Prestashop Niveau 2. Boutiques en ligne performantes, modules sur mesure et integrations paiement securisees.',
     visual: 'prestashop',
     link: '/services/prestashop',
     linkText: 'Notre expertise PrestaShop',
@@ -991,7 +991,7 @@ export default function DeveloppementPage() {
               >
                 {tech.name}
                 {tech.name === 'Prestashop' && (
-                  <span className="ml-2 text-[10px] text-pink-400 bg-pink-500/10 px-1.5 py-0.5 rounded">Expert</span>
+                  <span className="ml-2 text-[10px] text-pink-400 bg-pink-500/10 px-1.5 py-0.5 rounded">Expert Niveau 2</span>
                 )}
               </motion.span>
             ))}

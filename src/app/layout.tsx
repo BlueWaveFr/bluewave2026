@@ -15,6 +15,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bluewave.fr'),
+  icons: {
+    icon: '/images/logo-icon.jpg',
+    apple: '/images/logo-icon.jpg',
+  },
   title: {
     default: 'Bluewave - Agence Developpement Web & SEO Technique',
     template: '%s | Bluewave',

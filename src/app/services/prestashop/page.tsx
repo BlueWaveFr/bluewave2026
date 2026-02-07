@@ -257,7 +257,7 @@ export default function PrestashopPage() {
                   <span className="text-2xl font-bold">PS</span>
                 </div>
                 <span className="px-3 py-1 bg-pink-500/20 border border-pink-500/30 text-pink-400 text-sm font-medium rounded-full">
-                  Expert Certifie
+                  Expert Niveau 2
                 </span>
               </div>
               <h1 className="heading-xl text-white mb-6">

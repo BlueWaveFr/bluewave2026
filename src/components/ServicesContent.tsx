@@ -24,7 +24,7 @@ const services = [
   },
   {
     title: 'E-commerce PrestaShop',
-    description: 'Expert PrestaShop certifie. Creation de boutiques e-commerce performantes, modules sur mesure et accompagnement complet de votre activite en ligne.',
+    description: 'Expert PrestaShop Niveau 2. Creation de boutiques e-commerce performantes, modules sur mesure et accompagnement complet de votre activite en ligne.',
     features: [
       'Creation de boutique PrestaShop',
       'Modules et themes sur mesure',
@@ -39,7 +39,7 @@ const services = [
     ),
     href: '/services/prestashop',
     gradient: 'from-pink-500 to-pink-600',
-    badge: 'Expert',
+    badge: 'Expert Niveau 2',
   },
   {
     title: 'Debugging & Optimisation',

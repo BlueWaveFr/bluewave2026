@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Agence PrestaShop - Creation Boutique E-commerce Sur Mesure',
-  description: 'Expert PrestaShop certifie. Creation de boutiques e-commerce, developpement de modules sur mesure, migration et maintenance. Devis gratuit sous 48h.',
+  description: 'Expert PrestaShop Niveau 2. Creation de boutiques e-commerce, developpement de modules sur mesure, migration et maintenance. Devis gratuit sous 48h.',
   keywords: [
     'agence prestashop',
     'creation boutique prestashop',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Agence PrestaShop - Creation Boutique E-commerce | Bluewave',
-    description: 'Expert PrestaShop certifie. Creation de boutiques e-commerce sur mesure, modules personnalises et accompagnement complet.',
+    description: 'Expert PrestaShop Niveau 2. Creation de boutiques e-commerce sur mesure, modules personnalises et accompagnement complet.',
     url: 'https://bluewave.fr/services/prestashop',
     siteName: 'Bluewave',
     locale: 'fr_FR',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Agence PrestaShop - Creation Boutique E-commerce | Bluewave',
-    description: 'Expert PrestaShop certifie. Creation de boutiques e-commerce sur mesure, modules personnalises et accompagnement complet.',
+    description: 'Expert PrestaShop Niveau 2. Creation de boutiques e-commerce sur mesure, modules personnalises et accompagnement complet.',
   },
   alternates: {
     canonical: 'https://bluewave.fr/services/prestashop',
