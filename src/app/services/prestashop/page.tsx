@@ -6,8 +6,8 @@ import Image from 'next/image'
 
 const services = [
   {
-    title: 'Creation de boutique PrestaShop',
-    description: 'Developpement de boutiques e-commerce sur mesure avec PrestaShop 8 & 9. Design personnalise, configuration complete et mise en production.',
+    title: 'Création de boutique PrestaShop',
+    description: 'Développement de boutiques e-commerce sur mesure avec PrestaShop 8 & 9. Design personnalisé, configuration complète et mise en production.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -16,7 +16,7 @@ const services = [
   },
   {
     title: 'Modules PrestaShop sur mesure',
-    description: 'Developpement de modules personnalises pour etendre les fonctionnalites de votre boutique. Integrations API, automatisations, fonctionnalites metier.',
+    description: 'Développement de modules personnalisés pour étendre les fonctionnalités de votre boutique. Intégrations API, automatisations, fonctionnalités métier.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
@@ -25,7 +25,7 @@ const services = [
   },
   {
     title: 'Migration vers PrestaShop',
-    description: 'Migration de votre boutique depuis WooCommerce, Magento, Shopify ou autre CMS vers PrestaShop. Conservation des donnees produits, clients et commandes.',
+    description: 'Migration de votre boutique depuis WooCommerce, Magento, Shopify ou autre CMS vers PrestaShop. Conservation des données produits, clients et commandes.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
@@ -34,7 +34,7 @@ const services = [
   },
   {
     title: 'Optimisation & Performance',
-    description: 'Audit et optimisation de votre boutique existante. Amelioration des temps de chargement, SEO technique, Core Web Vitals et conversion.',
+    description: 'Audit et optimisation de votre boutique existante. Amélioration des temps de chargement, SEO technique, Core Web Vitals et conversion.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -42,8 +42,8 @@ const services = [
     ),
   },
   {
-    title: 'Integration paiement & logistique',
-    description: 'Integration de solutions de paiement (Stripe, PayPal, Mollie) et de transporteurs (Colissimo, Mondial Relay, Chronopost, DHL).',
+    title: 'Intégration paiement & logistique',
+    description: 'Intégration de solutions de paiement (Stripe, PayPal, Mollie) et de transporteurs (Colissimo, Mondial Relay, Chronopost, DHL).',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
@@ -52,7 +52,7 @@ const services = [
   },
   {
     title: 'Maintenance & Support',
-    description: 'Contrats de maintenance pour garder votre boutique a jour, securisee et performante. Support reactif et mises a jour regulieres.',
+    description: 'Contrats de maintenance pour garder votre boutique à jour, sécurisée et performante. Support réactif et mises à jour régulières.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -65,19 +65,19 @@ const services = [
 const advantages = [
   {
     title: 'Open Source & Flexible',
-    description: 'PrestaShop est 100% open source, sans frais de licence. Vous gardez le controle total de votre boutique et de vos donnees.',
+    description: 'PrestaShop est 100% open source, sans frais de licence. Vous gardez le contrôle total de votre boutique et de vos données.',
   },
   {
     title: 'Made in France',
-    description: 'Solution francaise avec une communaute active. Conformite RGPD native et support en francais.',
+    description: 'Solution française avec une communauté active. Conformité RGPD native et support en français.',
   },
   {
     title: 'Scalable',
-    description: 'De quelques produits a plusieurs milliers, PrestaShop s\'adapte a votre croissance sans limites.',
+    description: 'De quelques produits à plusieurs milliers, PrestaShop s\'adapte à votre croissance sans limites.',
   },
   {
-    title: 'SEO Optimise',
-    description: 'Architecture optimisee pour le referencement naturel. URLs propres, meta-donnees, sitemap automatique.',
+    title: 'SEO Optimisé',
+    description: 'Architecture optimisée pour le référencement naturel. URLs propres, méta-données, sitemap automatique.',
   },
 ]
 
@@ -85,33 +85,33 @@ const stats = [
   { value: '300K+', label: 'Boutiques actives dans le monde' },
   { value: '#1', label: 'CMS e-commerce en Europe' },
   { value: '80+', label: 'Moyens de paiement disponibles' },
-  { value: '200+', label: 'Transporteurs integres' },
+  { value: '200+', label: 'Transporteurs intégrés' },
 ]
 
 const faqs = [
   {
-    question: 'Combien coute la creation d\'une boutique PrestaShop ?',
-    answer: 'Le cout varie selon la complexite du projet. Une boutique standard demarre aux alentours de 3 000 EUR, tandis qu\'un projet sur mesure avec modules personnalises peut aller de 8 000 EUR a 25 000 EUR. Nous etablissons un devis precis apres etude de vos besoins.',
+    question: 'Combien coûte la création d\'une boutique PrestaShop ?',
+    answer: 'Le coût varie selon la complexité du projet. Une boutique standard démarre aux alentours de 3 000 €, tandis qu\'un projet sur mesure avec modules personnalisés peut aller de 8 000 € à 25 000 €. Nous établissons un devis précis après étude de vos besoins.',
   },
   {
-    question: 'Quelle est la duree de developpement d\'une boutique PrestaShop ?',
-    answer: 'Une boutique PrestaShop standard peut etre livree en 4 a 6 semaines. Les projets plus complexes avec des fonctionnalites sur mesure necessitent generalement 2 a 4 mois de developpement.',
+    question: 'Quelle est la durée de développement d\'une boutique PrestaShop ?',
+    answer: 'Une boutique PrestaShop standard peut être livrée en 4 à 6 semaines. Les projets plus complexes avec des fonctionnalités sur mesure nécessitent généralement 2 à 4 mois de développement.',
   },
   {
     question: 'PrestaShop ou WooCommerce, que choisir ?',
-    answer: 'PrestaShop est plus adapte pour les boutiques e-commerce dediees avec un catalogue important. WooCommerce convient mieux pour un site WordPress existant avec une dimension e-commerce secondaire. Nous vous conseillons selon votre contexte specifique.',
+    answer: 'PrestaShop est plus adapté pour les boutiques e-commerce dédiées avec un catalogue important. WooCommerce convient mieux pour un site WordPress existant avec une dimension e-commerce secondaire. Nous vous conseillons selon votre contexte spécifique.',
   },
   {
-    question: 'Proposez-vous la maintenance apres livraison ?',
-    answer: 'Oui, nous proposons des contrats de maintenance incluant les mises a jour de securite, la surveillance des performances, les sauvegardes automatiques et un support prioritaire. Les tarifs demarrent a 200 EUR/mois.',
+    question: 'Proposez-vous la maintenance après livraison ?',
+    answer: 'Oui, nous proposons des contrats de maintenance incluant les mises à jour de sécurité, la surveillance des performances, les sauvegardes automatiques et un support prioritaire. Les tarifs démarrent à 200 €/mois.',
   },
   {
     question: 'Pouvez-vous migrer ma boutique existante vers PrestaShop ?',
-    answer: 'Oui, nous realisons des migrations depuis WooCommerce, Magento, Shopify, OpenCart et autres plateformes. Nous preservons vos produits, clients, commandes et le referencement existant.',
+    answer: 'Oui, nous réalisons des migrations depuis WooCommerce, Magento, Shopify, OpenCart et autres plateformes. Nous préservons vos produits, clients, commandes et le référencement existant.',
   },
   {
-    question: 'Est-ce que PrestaShop est adapte pour le B2B ?',
-    answer: 'PrestaShop dispose de fonctionnalites B2B natives (groupes clients, tarifs personnalises, devis). Nous pouvons egalement developper des modules sur mesure pour des besoins specifiques : acces restreint, commandes en gros, etc.',
+    question: 'Est-ce que PrestaShop est adapté pour le B2B ?',
+    answer: 'PrestaShop dispose de fonctionnalités B2B natives (groupes clients, tarifs personnalisés, devis). Nous pouvons également développer des modules sur mesure pour des besoins spécifiques : accès restreint, commandes en gros, etc.',
   },
 ]
 
@@ -151,7 +151,7 @@ function PrestashopDashboardVisual() {
             transition={{ delay: 0.2 }}
           >
             <p className="text-dark-500 text-xs mb-1">Chiffre d'affaires</p>
-            <p className="text-accent-400 font-bold text-2xl">45,280 EUR</p>
+            <p className="text-accent-400 font-bold text-2xl">45 280 €</p>
             <p className="text-green-400 text-xs mt-1">+18.5% ce mois</p>
           </motion.div>
           <motion.div
@@ -180,12 +180,12 @@ function PrestashopDashboardVisual() {
 
         {/* Recent orders */}
         <div className="mb-6">
-          <p className="text-dark-400 text-sm mb-3">Dernieres commandes</p>
+          <p className="text-dark-400 text-sm mb-3">Dernières commandes</p>
           <div className="space-y-2">
             {[
-              { id: '#PS-8521', client: 'Marie D.', amount: '189 EUR', status: 'Livree' },
-              { id: '#PS-8520', client: 'Jean P.', amount: '342 EUR', status: 'Expediee' },
-              { id: '#PS-8519', client: 'Sophie L.', amount: '67 EUR', status: 'En preparation' },
+              { id: '#PS-8521', client: 'Marie D.', amount: '189 €', status: 'Livrée' },
+              { id: '#PS-8520', client: 'Jean P.', amount: '342 €', status: 'Expédiée' },
+              { id: '#PS-8519', client: 'Sophie L.', amount: '67 €', status: 'En préparation' },
             ].map((order, i) => (
               <motion.div
                 key={order.id}
@@ -202,8 +202,8 @@ function PrestashopDashboardVisual() {
                 <div className="flex items-center gap-3">
                   <span className="text-accent-400 text-sm font-medium">{order.amount}</span>
                   <span className={`px-2 py-0.5 rounded text-xs ${
-                    order.status === 'Livree' ? 'bg-green-500/20 text-green-400' :
-                    order.status === 'Expediee' ? 'bg-blue-500/20 text-blue-400' :
+                    order.status === 'Livrée' ? 'bg-green-500/20 text-green-400' :
+                    order.status === 'Expédiée' ? 'bg-blue-500/20 text-blue-400' :
                     'bg-yellow-500/20 text-yellow-400'
                   }`}>{order.status}</span>
                 </div>
@@ -263,18 +263,18 @@ export default function PrestashopPage() {
               <h1 className="heading-xl text-white mb-6">
                 Agence{' '}
                 <span className="text-pink-400">PrestaShop</span>{' '}
-                <br />Creation de Boutique E-commerce
+                <br />Création de Boutique E-commerce
               </h1>
               <p className="text-xl text-dark-300 leading-relaxed mb-8">
-                Developpement de boutiques PrestaShop sur mesure, modules personnalises
-                et accompagnement e-commerce complet. Plus de 10 ans d'experience sur la plateforme.
+                Développement de boutiques PrestaShop sur mesure, modules personnalisés
+                et accompagnement e-commerce complet. Plus de 10 ans d'expérience sur la plateforme.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact" className="btn-primary bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700">
                   Demander un devis gratuit
                 </Link>
                 <Link href="/realisations" className="btn-secondary">
-                  Voir nos realisations
+                  Voir nos réalisations
                 </Link>
               </div>
             </motion.div>
@@ -327,7 +327,7 @@ export default function PrestashopPage() {
               Nos services PrestaShop
             </h2>
             <p className="text-dark-300 text-lg max-w-2xl mx-auto">
-              Un accompagnement complet pour votre projet e-commerce, de la conception a la maintenance.
+              Un accompagnement complet pour votre projet e-commerce, de la conception à la maintenance.
             </p>
           </motion.div>
 
@@ -370,8 +370,8 @@ export default function PrestashopPage() {
                 <span className="text-pink-400">PrestaShop</span> ?
               </h2>
               <p className="text-dark-300 text-lg mb-8 leading-relaxed">
-                PrestaShop est la solution e-commerce leader en Europe, utilisee par plus de 300 000 boutiques.
-                Open source, flexible et puissante, elle s'adapte a tous les projets e-commerce.
+                PrestaShop est la solution e-commerce leader en Europe, utilisée par plus de 300 000 boutiques.
+                Open source, flexible et puissante, elle s'adapte à tous les projets e-commerce.
               </p>
               <div className="space-y-6">
                 {advantages.map((advantage, index) => (
@@ -465,10 +465,10 @@ export default function PrestashopPage() {
             viewport={{ once: true }}
           >
             <h2 className="heading-lg text-white mb-4">
-              Questions frequentes
+              Questions fréquentes
             </h2>
             <p className="text-dark-300 text-lg">
-              Les reponses aux questions les plus courantes sur nos services PrestaShop.
+              Les réponses aux questions les plus courantes sur nos services PrestaShop.
             </p>
           </motion.div>
 
@@ -517,7 +517,7 @@ export default function PrestashopPage() {
                 Lancez votre boutique PrestaShop
               </h2>
               <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-                Discutons de votre projet e-commerce et obtenez un devis personnalise
+                Discutons de votre projet e-commerce et obtenez un devis personnalisé
                 sous 48h.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
