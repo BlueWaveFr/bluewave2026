@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { devWordpressSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Developpement WordPress Headless - CMS + Next.js',
@@ -38,5 +39,19 @@ export default function WordPressLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            devWordpressSchemas.service,
+            devWordpressSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

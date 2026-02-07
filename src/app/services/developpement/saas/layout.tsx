@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { devSaasSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Developpement SaaS & Plateformes - Applications Metier Sur Mesure',
@@ -38,5 +39,19 @@ export default function SaasLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            devSaasSchemas.service,
+            devSaasSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

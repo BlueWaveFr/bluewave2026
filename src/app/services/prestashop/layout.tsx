@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { prestashopSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Agence PrestaShop - Creation Boutique E-commerce Sur Mesure',
@@ -36,5 +37,20 @@ export default function PrestashopLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            prestashopSchemas.service,
+            prestashopSchemas.faq,
+            prestashopSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { auditSeoSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Audit SEO Technique - Analyse Complete de Votre Referencement',
@@ -38,5 +39,19 @@ export default function SeoAuditLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            auditSeoSchemas.service,
+            auditSeoSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

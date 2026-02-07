@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { auditCoreWebVitalsSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Audit Core Web Vitals - LCP, CLS, INP | Optimisation Google',
@@ -40,5 +41,19 @@ export default function CoreWebVitalsAuditLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            auditCoreWebVitalsSchemas.service,
+            auditCoreWebVitalsSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

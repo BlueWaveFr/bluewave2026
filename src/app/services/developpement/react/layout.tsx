@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { devReactSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Developpement React & Next.js - Applications Web Modernes',
@@ -38,5 +39,19 @@ export default function ReactLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            devReactSchemas.service,
+            devReactSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

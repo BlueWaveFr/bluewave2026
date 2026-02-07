@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { developpementSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Developpement Web Sur Mesure',
@@ -13,5 +14,19 @@ export default function DeveloppementLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            developpementSchemas.service,
+            developpementSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

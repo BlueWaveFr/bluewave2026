@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { auditPerformanceSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Audit de Performance Web - Optimisation Vitesse Site',
@@ -38,5 +39,19 @@ export default function PerformanceAuditLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            auditPerformanceSchemas.service,
+            auditPerformanceSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

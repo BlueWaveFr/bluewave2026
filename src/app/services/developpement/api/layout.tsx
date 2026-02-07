@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { devApiSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Developpement API REST & GraphQL - Backend Sur Mesure',
@@ -38,5 +39,19 @@ export default function ApiLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            devApiSchemas.service,
+            devApiSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

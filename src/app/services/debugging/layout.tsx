@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { debuggingSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Debugging & Optimisation',
@@ -13,5 +14,19 @@ export default function DebuggingLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            debuggingSchemas.service,
+            debuggingSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }

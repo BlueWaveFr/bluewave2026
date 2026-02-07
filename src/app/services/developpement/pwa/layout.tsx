@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { devPwaSchemas, bluewaveOrganization } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: 'Developpement Progressive Web App (PWA) - Applications Installables',
@@ -38,5 +39,19 @@ export default function PwaLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            bluewaveOrganization,
+            devPwaSchemas.service,
+            devPwaSchemas.breadcrumb
+          ])
+        }}
+      />
+      {children}
+    </>
+  )
 }
