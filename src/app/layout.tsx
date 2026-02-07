@@ -5,7 +5,6 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import { GoogleTagManager } from '@/components/GoogleTagManager'
-import RecaptchaProvider from '@/components/RecaptchaProvider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -72,16 +71,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={inter.variable}>
+      <head>
+        {/* Preconnect pour optimiser le LCP - SST GTM */}
+        <link rel="preconnect" href="https://sst.waverank.io" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://sst.waverank.io" />
+        {/* Preconnect Google reCAPTCHA */}
+        <link rel="preconnect" href="https://www.google.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-screen flex flex-col">
         <GoogleTagManager />
-        <RecaptchaProvider>
-          <Header />
-          <div className="flex-1">
-            {children}
-          </div>
-          <Footer />
-          <CookieConsent />
-        </RecaptchaProvider>
+        <Header />
+        <div className="flex-1">
+          {children}
+        </div>
+        <Footer />
+        <CookieConsent />
       </body>
     </html>
   )

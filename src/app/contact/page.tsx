@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import ContactForm from '@/components/ContactForm'
+import ContactFormWrapper from '@/components/ContactFormWrapper'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -14,7 +14,7 @@ export default function ContactPage() {
     <main className="pt-20">
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ContactForm />
+          <ContactFormWrapper />
         </div>
       </section>
     </main>
