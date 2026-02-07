@@ -8,20 +8,20 @@ const localInfo = {
   region: 'Charente',
   department: '16',
   description: 'capitale mondiale des eaux-de-vie et berceau du cognac',
-  businessContext: 'Cognac est mondialement connue pour son eau-de-vie et ses grandes maisons de negoce. La ville attire une clientele internationale et developpe un e-commerce premium autour du luxe, de la gastronomie et du tourisme.',
-  sectors: ['Negoce de cognac et spiritueux', 'Oenotourisme', 'Gastronomie et epicerie fine', 'Artisanat du luxe', 'Hotellerie haut de gamme'],
+  businessContext: 'Cognac est mondialement connue pour son eau-de-vie et ses grandes maisons de négoce. La ville attire une clientèle internationale et développe un e-commerce premium autour du luxe, de la gastronomie et du tourisme.',
+  sectors: ['Négoce de cognac et spiritueux', 'Œnotourisme', 'Gastronomie et épicerie fine', 'Artisanat du luxe', 'Hôtellerie haut de gamme'],
   stats: [
     { value: '19K+', label: 'Habitants' },
-    { value: '200M+', label: 'Bouteilles exportees/an' },
-    { value: '98%', label: 'Production exportee' },
-    { value: '#1', label: 'Spiritueux francais' },
+    { value: '200M+', label: 'Bouteilles exportées/an' },
+    { value: '98%', label: 'Production exportée' },
+    { value: '#1', label: 'Spiritueux français' },
   ],
 }
 
 const services = [
   {
-    title: 'Creation de boutique PrestaShop',
-    description: `Developpement de votre boutique e-commerce a ${localInfo.city}. Design sur mesure adapte a votre marche local et integration avec les specificites regionales.`,
+    title: 'Création de boutique PrestaShop',
+    description: `Développement de votre boutique e-commerce à ${localInfo.city}. Design sur mesure adapté à votre marché local et intégration avec les spécificités régionales.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -30,7 +30,7 @@ const services = [
   },
   {
     title: 'Modules PrestaShop sur mesure',
-    description: `Developpement de modules personnalises pour les maisons de cognac et commercants de ${localInfo.city}. Gestion des ages, millesimes et restrictions legales sur l'alcool.`,
+    description: `Développement de modules personnalisés pour les maisons de cognac et commerçants de ${localInfo.city}. Gestion des âges, millésimes et restrictions légales sur l'alcool.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
@@ -39,7 +39,7 @@ const services = [
   },
   {
     title: 'SEO Local Cognac',
-    description: `Optimisation de votre referencement pour les recherches locales a ${localInfo.city} et en ${localInfo.region}. Visibilite accrue sur Google Maps et recherches geolocalisees.`,
+    description: `Optimisation de votre référencement pour les recherches locales à ${localInfo.city} et en ${localInfo.region}. Visibilité accrue sur Google Maps et recherches géolocalisées.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -49,7 +49,7 @@ const services = [
   },
   {
     title: 'E-commerce Spiritueux',
-    description: `Solutions e-commerce specifiques pour la vente de spiritueux : verification d'age, restrictions geographiques, conformite legale et expedition securisee.`,
+    description: `Solutions e-commerce spécifiques pour la vente de spiritueux : vérification d'âge, restrictions géographiques, conformité légale et expédition sécurisée.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -58,7 +58,7 @@ const services = [
   },
   {
     title: 'Formation PrestaShop',
-    description: `Sessions de formation PrestaShop dans vos locaux a ${localInfo.city}. Maitrisez la gestion de votre boutique en autonomie.`,
+    description: `Sessions de formation PrestaShop dans vos locaux à ${localInfo.city}. Maîtrisez la gestion de votre boutique en autonomie.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -67,7 +67,7 @@ const services = [
   },
   {
     title: 'Maintenance & Support',
-    description: `Support reactif pour les e-commercants de ${localInfo.city}. Intervention rapide, mises a jour de securite et accompagnement personnalise.`,
+    description: `Support réactif pour les e-commerçants de ${localInfo.city}. Intervention rapide, mises à jour de sécurité et accompagnement personnalisé.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -79,20 +79,20 @@ const services = [
 
 const faqs = [
   {
-    question: `Pourquoi choisir une agence PrestaShop a ${localInfo.city} ?`,
-    answer: `Travailler avec une agence qui connait ${localInfo.city} vous permet de beneficier d'une expertise specifique au marche des spiritueux et du cognac. Nous comprenons les contraintes legales de la vente d'alcool en ligne et les attentes d'une clientele internationale haut de gamme.`,
+    question: `Pourquoi choisir une agence PrestaShop à ${localInfo.city} ?`,
+    answer: `Travailler avec une agence qui connaît ${localInfo.city} vous permet de bénéficier d'une expertise spécifique au marché des spiritueux et du cognac. Nous comprenons les contraintes légales de la vente d'alcool en ligne et les attentes d'une clientèle internationale haut de gamme.`,
   },
   {
-    question: `Combien coute la creation d'une boutique PrestaShop a ${localInfo.city} ?`,
-    answer: `Les tarifs pour une boutique PrestaShop a ${localInfo.city} demarrent a 3 000 EUR pour une boutique standard. Les projets sur mesure avec modules de verification d'age, gestion des millesimes et integrations specifiques peuvent aller de 8 000 EUR a 25 000 EUR. Nous etablissons un devis gratuit apres etude de vos besoins.`,
+    question: `Combien coûte la création d'une boutique PrestaShop à ${localInfo.city} ?`,
+    answer: `Les tarifs pour une boutique PrestaShop à ${localInfo.city} démarrent à 3 000 € pour une boutique standard. Les projets sur mesure avec modules de vérification d'âge, gestion des millésimes et intégrations spécifiques peuvent aller de 8 000 € à 25 000 €. Nous établissons un devis gratuit après étude de vos besoins.`,
   },
   {
-    question: `Avez-vous deja realise des sites PrestaShop a ${localInfo.city} ?`,
-    answer: `Oui, nous avons deja realise des boutiques e-commerce PrestaShop pour des acteurs du cognac et des spiritueux. Nous connaissons les specificites du secteur : gestion des ages, conformite legale, expedition internationale et positionnement premium.`,
+    question: `Avez-vous déjà réalisé des sites PrestaShop à ${localInfo.city} ?`,
+    answer: `Oui, nous avons déjà réalisé des boutiques e-commerce PrestaShop pour des acteurs du cognac et des spiritueux. Nous connaissons les spécificités du secteur : gestion des âges, conformité légale, expédition internationale et positionnement premium.`,
   },
   {
-    question: `Pouvez-vous gerer les contraintes legales de la vente d'alcool en ligne ?`,
-    answer: `Absolument. Nous integrons les modules de verification d'age obligatoires, les mentions legales specifiques, les restrictions geographiques selon les pays et toutes les conformites necessaires a la vente de spiritueux en ligne.`,
+    question: `Pouvez-vous gérer les contraintes légales de la vente d'alcool en ligne ?`,
+    answer: `Absolument. Nous intégrons les modules de vérification d'âge obligatoires, les mentions légales spécifiques, les restrictions géographiques selon les pays et toutes les conformités nécessaires à la vente de spiritueux en ligne.`,
   },
 ]
 
@@ -107,7 +107,7 @@ export default function PrestashopCognacPage() {
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
             name: `Agence PrestaShop ${localInfo.city} - Bluewave`,
-            description: `Creation de boutiques PrestaShop a ${localInfo.city}. Expert e-commerce en ${localInfo.region}.`,
+            description: `Création de boutiques PrestaShop à ${localInfo.city}. Expert e-commerce en ${localInfo.region}.`,
             url: `https://bluewave.fr/services/prestashop/cognac`,
             telephone: '+33 5 XX XX XX XX',
             address: {
@@ -156,15 +156,15 @@ export default function PrestashopCognacPage() {
               {localInfo.city}
             </h1>
             <p className="text-xl text-dark-300 leading-relaxed mb-8">
-              Creation de boutiques e-commerce PrestaShop a {localInfo.city}, {localInfo.description}.
-              Nous accompagnons les maisons de cognac et commercants de la region dans leur developpement digital.
+              Création de boutiques e-commerce PrestaShop à {localInfo.city}, {localInfo.description}.
+              Nous accompagnons les maisons de cognac et commerçants de la région dans leur développement digital.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" className="btn-primary bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700">
                 Devis gratuit sous 48h
               </Link>
               <Link href="/realisations" className="btn-secondary">
-                Nos realisations
+                Nos réalisations
               </Link>
             </div>
           </motion.div>
@@ -204,7 +204,7 @@ export default function PrestashopCognacPage() {
               viewport={{ once: true }}
             >
               <h2 className="heading-lg text-white mb-6">
-                Le e-commerce a{' '}
+                Le e-commerce à{' '}
                 <span className="text-pink-400">{localInfo.city}</span>
               </h2>
               <p className="text-dark-300 text-lg mb-6 leading-relaxed">
@@ -239,7 +239,7 @@ export default function PrestashopCognacPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Intervention a {localInfo.city}</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">Intervention à {localInfo.city}</h3>
                   <p className="text-dark-400">et dans toute la {localInfo.region}</p>
                 </div>
                 <ul className="space-y-3">
@@ -247,7 +247,7 @@ export default function PrestashopCognacPage() {
                     <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    Rendez-vous en presentiel
+                    Rendez-vous en présentiel
                   </li>
                   <li className="flex items-center gap-3 text-dark-300">
                     <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -265,7 +265,7 @@ export default function PrestashopCognacPage() {
                     <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    Conformite legale alcool
+                    Conformité légale alcool
                   </li>
                 </ul>
               </div>
@@ -284,10 +284,10 @@ export default function PrestashopCognacPage() {
             viewport={{ once: true }}
           >
             <h2 className="heading-lg text-white mb-4">
-              Nos services PrestaShop a {localInfo.city}
+              Nos services PrestaShop à {localInfo.city}
             </h2>
             <p className="text-dark-300 text-lg max-w-2xl mx-auto">
-              Un accompagnement complet pour les e-commercants de {localInfo.city} et sa region.
+              Un accompagnement complet pour les e-commerçants de {localInfo.city} et sa région.
             </p>
           </motion.div>
 
@@ -326,7 +326,7 @@ export default function PrestashopCognacPage() {
             viewport={{ once: true }}
           >
             <h2 className="heading-lg text-white mb-4">
-              Questions frequentes - PrestaShop {localInfo.city}
+              Questions fréquentes - PrestaShop {localInfo.city}
             </h2>
           </motion.div>
 
@@ -365,12 +365,12 @@ export default function PrestashopCognacPage() {
             viewport={{ once: true }}
           >
             <h2 className="heading-lg text-white mb-4">
-              Nous intervenons egalement
+              Nous intervenons également
             </h2>
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            {['Bordeaux', 'Merignac', 'Pessac', 'Libourne', 'Arcachon', 'Bayonne', 'Biarritz', 'Anglet', 'Pau'].map((city) => (
+            {['Bordeaux', 'Mérignac', 'Pessac', 'Libourne', 'Arcachon', 'Bayonne', 'Biarritz', 'Anglet', 'Pau'].map((city) => (
               <Link
                 key={city}
                 href={`/services/prestashop/${city.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')}`}
@@ -398,10 +398,10 @@ export default function PrestashopCognacPage() {
 
             <div className="relative z-10 px-8 py-16 md:px-16 md:py-24 text-center">
               <h2 className="heading-lg text-white mb-6">
-                Lancez votre boutique PrestaShop a {localInfo.city}
+                Lancez votre boutique PrestaShop à {localInfo.city}
               </h2>
               <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-                Discutons de votre projet e-commerce. Devis gratuit et personnalise sous 48h.
+                Discutons de votre projet e-commerce. Devis gratuit et personnalisé sous 48h.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link

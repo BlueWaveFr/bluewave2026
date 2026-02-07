@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Agence PrestaShop Pessac - Creation Boutique E-commerce | Bluewave',
-  description: 'Expert PrestaShop a Pessac. Creation de boutiques e-commerce sur mesure, developpement de modules et accompagnement pour les commercants de Gironde. Devis gratuit.',
-  keywords: 'prestashop pessac, agence prestashop pessac, creation boutique prestashop pessac, developpeur prestashop pessac, e-commerce pessac',
+  title: 'Agence PrestaShop Pessac - Création Boutique E-commerce | Bluewave',
+  description: 'Expert PrestaShop à Pessac. Création de boutiques e-commerce sur mesure, développement de modules et accompagnement pour les commerçants de Gironde. Devis gratuit.',
+  keywords: 'prestashop pessac, agence prestashop pessac, création boutique prestashop pessac, développeur prestashop pessac, e-commerce pessac',
   openGraph: {
-    title: 'Agence PrestaShop Pessac - Creation Boutique E-commerce',
-    description: 'Expert PrestaShop a Pessac. Creation de boutiques e-commerce sur mesure pour les commercants de Gironde.',
+    title: 'Agence PrestaShop Pessac - Création Boutique E-commerce',
+    description: 'Expert PrestaShop à Pessac. Création de boutiques e-commerce sur mesure pour les commerçants de Gironde.',
     url: 'https://bluewave.fr/services/prestashop/pessac',
     siteName: 'Bluewave',
     locale: 'fr_FR',

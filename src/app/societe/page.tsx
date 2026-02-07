@@ -3,7 +3,7 @@ import AboutContent from '@/components/AboutContent'
 
 export const metadata: Metadata = {
   title: 'La Societe',
-  description: 'Decouvrez Bluewave, agence digitale specialisee en developpement web et SEO technique. Une equipe passionnee au service de votre croissance digitale.',
+  description: 'Decouvrez Bluewave, agence digitale specialisée en developpement web et SEO technique. Une équipe passionnée au service de votre croissance digitale.',
   alternates: {
     canonical: 'https://bluewave.fr/societe',
   },

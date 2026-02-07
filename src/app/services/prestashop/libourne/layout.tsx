@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Agence PrestaShop Libourne - Creation Boutique E-commerce | Bluewave',
-  description: 'Expert PrestaShop a Libourne. Creation de boutiques e-commerce sur mesure, developpement de modules et accompagnement pour les commercants du Libournais. Devis gratuit.',
-  keywords: 'prestashop libourne, agence prestashop libourne, creation boutique prestashop libourne, developpeur prestashop libourne, e-commerce libourne, saint-emilion',
+  title: 'Agence PrestaShop Libourne - Création Boutique E-commerce | Bluewave',
+  description: 'Expert PrestaShop à Libourne. Création de boutiques e-commerce sur mesure, développement de modules et accompagnement pour les commerçants du Libournais. Devis gratuit.',
+  keywords: 'prestashop libourne, agence prestashop libourne, création boutique prestashop libourne, développeur prestashop libourne, e-commerce libourne, saint-émilion',
   openGraph: {
-    title: 'Agence PrestaShop Libourne - Creation Boutique E-commerce',
-    description: 'Expert PrestaShop a Libourne. Creation de boutiques e-commerce sur mesure pour les commercants du Libournais.',
+    title: 'Agence PrestaShop Libourne - Création Boutique E-commerce',
+    description: 'Expert PrestaShop à Libourne. Création de boutiques e-commerce sur mesure pour les commerçants du Libournais.',
     url: 'https://bluewave.fr/services/prestashop/libourne',
     siteName: 'Bluewave',
     locale: 'fr_FR',

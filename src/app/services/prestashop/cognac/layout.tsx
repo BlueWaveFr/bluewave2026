@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Agence PrestaShop Cognac - Creation Boutique E-commerce | Bluewave',
-  description: 'Expert PrestaShop a Cognac. Creation de boutiques e-commerce sur mesure, developpement de modules et accompagnement pour les commercants de Charente. Devis gratuit.',
-  keywords: 'prestashop cognac, agence prestashop cognac, creation boutique prestashop cognac, developpeur prestashop cognac, e-commerce cognac, charente',
+  title: 'Agence PrestaShop Cognac - Création Boutique E-commerce | Bluewave',
+  description: 'Expert PrestaShop à Cognac. Création de boutiques e-commerce sur mesure, développement de modules et accompagnement pour les commerçants de Charente. Devis gratuit.',
+  keywords: 'prestashop cognac, agence prestashop cognac, création boutique prestashop cognac, développeur prestashop cognac, e-commerce cognac, charente',
   openGraph: {
-    title: 'Agence PrestaShop Cognac - Creation Boutique E-commerce',
-    description: 'Expert PrestaShop a Cognac. Creation de boutiques e-commerce sur mesure pour les commercants de Charente.',
+    title: 'Agence PrestaShop Cognac - Création Boutique E-commerce',
+    description: 'Expert PrestaShop à Cognac. Création de boutiques e-commerce sur mesure pour les commerçants de Charente.',
     url: 'https://bluewave.fr/services/prestashop/cognac',
     siteName: 'Bluewave',
     locale: 'fr_FR',

@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Agence PrestaShop Biarritz - Creation Boutique E-commerce | Bluewave',
-  description: 'Expert PrestaShop a Biarritz. Creation de boutiques e-commerce sur mesure, developpement de modules et accompagnement pour les commercants des Pyrenees-Atlantiques. Devis gratuit.',
-  keywords: 'prestashop biarritz, agence prestashop biarritz, creation boutique prestashop biarritz, developpeur prestashop biarritz, e-commerce biarritz',
+  title: 'Agence PrestaShop Biarritz - Création Boutique E-commerce | Bluewave',
+  description: 'Expert PrestaShop à Biarritz. Création de boutiques e-commerce sur mesure, développement de modules et accompagnement pour les commerçants des Pyrénées-Atlantiques. Devis gratuit.',
+  keywords: 'prestashop biarritz, agence prestashop biarritz, création boutique prestashop biarritz, développeur prestashop biarritz, e-commerce biarritz',
   openGraph: {
-    title: 'Agence PrestaShop Biarritz - Creation Boutique E-commerce',
-    description: 'Expert PrestaShop a Biarritz. Creation de boutiques e-commerce sur mesure pour les commercants des Pyrenees-Atlantiques.',
+    title: 'Agence PrestaShop Biarritz - Création Boutique E-commerce',
+    description: 'Expert PrestaShop à Biarritz. Création de boutiques e-commerce sur mesure pour les commerçants des Pyrénées-Atlantiques.',
     url: 'https://bluewave.fr/services/prestashop/biarritz',
     siteName: 'Bluewave',
     locale: 'fr_FR',

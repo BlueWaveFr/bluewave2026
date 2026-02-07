@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Agence PrestaShop Pau - Creation Boutique E-commerce | Bluewave',
-  description: 'Expert PrestaShop a Pau. Creation de boutiques e-commerce sur mesure, developpement de modules et accompagnement pour les commercants des Pyrenees-Atlantiques. Devis gratuit.',
-  keywords: 'prestashop pau, agence prestashop pau, creation boutique prestashop pau, developpeur prestashop pau, e-commerce pau, prestashop pyrenees-atlantiques',
+  title: 'Agence PrestaShop Pau - Création Boutique E-commerce | Bluewave',
+  description: 'Expert PrestaShop à Pau. Création de boutiques e-commerce sur mesure, développement de modules et accompagnement pour les commerçants des Pyrénées-Atlantiques. Devis gratuit.',
+  keywords: 'prestashop pau, agence prestashop pau, création boutique prestashop pau, développeur prestashop pau, e-commerce pau, prestashop pyrénées-atlantiques',
   openGraph: {
-    title: 'Agence PrestaShop Pau - Creation Boutique E-commerce',
-    description: 'Expert PrestaShop a Pau. Creation de boutiques e-commerce sur mesure pour les commercants des Pyrenees-Atlantiques.',
+    title: 'Agence PrestaShop Pau - Création Boutique E-commerce',
+    description: 'Expert PrestaShop à Pau. Création de boutiques e-commerce sur mesure pour les commerçants des Pyrénées-Atlantiques.',
     url: 'https://bluewave.fr/services/prestashop/pau',
     siteName: 'Bluewave',
     locale: 'fr_FR',

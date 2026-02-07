@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     apple: '/images/logo-icon.jpg',
   },
   title: {
-    default: 'Bluewave - Agence Developpement Web & SEO Technique',
+    default: 'Bluewave - Agence Développement Web & SEO Technique',
     template: '%s | Bluewave',
   },
-  description: 'Agence digitale specialisee en developpement web, applications sur mesure, e-commerce, SEO technique et solutions IA. Expertise technique pour PME et grands comptes.',
+  description: 'Agence digitale spécialisée en développement web, applications sur mesure, e-commerce, SEO technique et solutions IA. Expertise technique pour PME et grands comptes.',
   authors: [{ name: 'Bluewave' }],
   creator: 'Bluewave',
   publisher: 'Bluewave',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
     url: 'https://bluewave.fr',
     siteName: 'Bluewave',
-    title: 'Bluewave - Agence Developpement Web & SEO Technique',
-    description: 'Agence digitale specialisee en developpement web, applications sur mesure, e-commerce, SEO technique et solutions IA.',
+    title: 'Bluewave - Agence Développement Web & SEO Technique',
+    description: 'Agence digitale spécialisée en développement web, applications sur mesure, e-commerce, SEO technique et solutions IA.',
     images: [
       {
         url: '/og-image.jpg',
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bluewave - Agence Developpement Web & SEO Technique',
-    description: 'Agence digitale specialisee en developpement web, applications sur mesure, e-commerce, SEO technique et solutions IA.',
+    title: 'Bluewave - Agence Développement Web & SEO Technique',
+    description: 'Agence digitale spécialisée en développement web, applications sur mesure, e-commerce, SEO technique et solutions IA.',
     images: ['/og-image.jpg'],
   },
   robots: {

@@ -4,12 +4,12 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const localInfo = {
-  city: 'Merignac',
+  city: 'Mérignac',
   region: 'Gironde',
   department: '33',
-  description: 'deuxieme ville de Gironde et pole economique de la metropole bordelaise',
-  businessContext: 'Merignac accueille l\'aeroport de Bordeaux et de nombreuses zones d\'activites. La ville compte plus de 10 000 entreprises, notamment dans l\'aeronautique, la logistique et le commerce.',
-  sectors: ['Commerce de detail', 'Logistique et transport', 'Services aux entreprises', 'Restauration', 'Bien-etre et sante'],
+  description: 'deuxième ville de Gironde et pôle économique de la métropole bordelaise',
+  businessContext: 'Mérignac accueille l\'aéroport de Bordeaux et de nombreuses zones d\'activités. La ville compte plus de 10 000 entreprises, notamment dans l\'aéronautique, la logistique et le commerce.',
+  sectors: ['Commerce de détail', 'Logistique et transport', 'Services aux entreprises', 'Restauration', 'Bien-être et santé'],
   stats: [
     { value: '75K+', label: 'Habitants' },
     { value: '10K+', label: 'Entreprises' },
@@ -20,8 +20,8 @@ const localInfo = {
 
 const services = [
   {
-    title: 'Creation de boutique PrestaShop',
-    description: `Developpement de votre boutique e-commerce a ${localInfo.city}. Design sur mesure adapte a votre marche local et integration avec les specificites regionales.`,
+    title: 'Création de boutique PrestaShop',
+    description: `Développement de votre boutique e-commerce à ${localInfo.city}. Design sur mesure adapté à votre marché local et intégration avec les spécificités régionales.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -30,7 +30,7 @@ const services = [
   },
   {
     title: 'Modules PrestaShop sur mesure',
-    description: `Developpement de modules personnalises pour les commercants de ${localInfo.city}. Integrations avec les transporteurs locaux et solutions de paiement regionales.`,
+    description: `Développement de modules personnalisés pour les commerçants de ${localInfo.city}. Intégrations avec les transporteurs locaux et solutions de paiement régionales.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
@@ -38,8 +38,8 @@ const services = [
     ),
   },
   {
-    title: 'SEO Local Merignac',
-    description: `Optimisation de votre referencement pour les recherches locales a ${localInfo.city} et en ${localInfo.region}. Visibilite accrue sur Google Maps et recherches geolocalisees.`,
+    title: 'SEO Local Mérignac',
+    description: `Optimisation de votre référencement pour les recherches locales à ${localInfo.city} et en ${localInfo.region}. Visibilité accrue sur Google Maps et recherches géolocalisées.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -48,8 +48,8 @@ const services = [
     ),
   },
   {
-    title: 'Integration Click & Collect',
-    description: `Mise en place de solutions Click & Collect pour vos clients merignacais. Retrait en magasin, points relais locaux et livraison express dans la metropole.`,
+    title: 'Intégration Click & Collect',
+    description: `Mise en place de solutions Click & Collect pour vos clients mérignacais. Retrait en magasin, points relais locaux et livraison express dans la métropole.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -58,7 +58,7 @@ const services = [
   },
   {
     title: 'Formation PrestaShop',
-    description: `Sessions de formation PrestaShop dans nos locaux ou directement dans votre entreprise a ${localInfo.city}. Maitrisez la gestion de votre boutique en autonomie.`,
+    description: `Sessions de formation PrestaShop dans nos locaux ou directement dans votre entreprise à ${localInfo.city}. Maîtrisez la gestion de votre boutique en autonomie.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -67,7 +67,7 @@ const services = [
   },
   {
     title: 'Maintenance & Support',
-    description: `Support reactif pour les e-commercants de ${localInfo.city}. Intervention rapide, mises a jour de securite et accompagnement personnalise.`,
+    description: `Support réactif pour les e-commerçants de ${localInfo.city}. Intervention rapide, mises à jour de sécurité et accompagnement personnalisé.`,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -79,20 +79,20 @@ const services = [
 
 const faqs = [
   {
-    question: `Pourquoi choisir une agence PrestaShop a ${localInfo.city} ?`,
-    answer: `Travailler avec une agence locale a ${localInfo.city} vous permet de beneficier d'un accompagnement de proximite, de reunions en presentiel et d'une parfaite connaissance du tissu economique merignacais. Nous comprenons les specificites du marche local et pouvons vous conseiller sur les meilleures strategies e-commerce pour la region.`,
+    question: `Pourquoi choisir une agence PrestaShop à ${localInfo.city} ?`,
+    answer: `Travailler avec une agence locale à ${localInfo.city} vous permet de bénéficier d'un accompagnement de proximité, de réunions en présentiel et d'une parfaite connaissance du tissu économique mérignacais. Nous comprenons les spécificités du marché local et pouvons vous conseiller sur les meilleures stratégies e-commerce pour la région.`,
   },
   {
-    question: `Combien coute la creation d'une boutique PrestaShop a ${localInfo.city} ?`,
-    answer: `Les tarifs pour une boutique PrestaShop a ${localInfo.city} demarrent a 3 000 EUR pour une boutique standard. Les projets sur mesure avec modules personnalises et integrations specifiques peuvent aller de 8 000 EUR a 25 000 EUR. Nous etablissons un devis gratuit apres etude de vos besoins.`,
+    question: `Combien coûte la création d'une boutique PrestaShop à ${localInfo.city} ?`,
+    answer: `Les tarifs pour une boutique PrestaShop à ${localInfo.city} démarrent à 3 000 € pour une boutique standard. Les projets sur mesure avec modules personnalisés et intégrations spécifiques peuvent aller de 8 000 € à 25 000 €. Nous établissons un devis gratuit après étude de vos besoins.`,
   },
   {
-    question: `Proposez-vous des rendez-vous en presentiel a ${localInfo.city} ?`,
-    answer: `Oui, nous nous deplacons regulierement a ${localInfo.city} et dans toute la ${localInfo.region}. Nous pouvons organiser des reunions dans vos locaux ou dans un espace de coworking merignacais pour discuter de votre projet e-commerce.`,
+    question: `Proposez-vous des rendez-vous en présentiel à ${localInfo.city} ?`,
+    answer: `Oui, nous nous déplaçons régulièrement à ${localInfo.city} et dans toute la ${localInfo.region}. Nous pouvons organiser des réunions dans vos locaux ou dans un espace de coworking mérignacais pour discuter de votre projet e-commerce.`,
   },
   {
-    question: `Quels secteurs accompagnez-vous a ${localInfo.city} ?`,
-    answer: `Nous accompagnons tous les secteurs d'activite a ${localInfo.city}, avec une expertise particuliere dans le commerce de detail, la logistique, les services aux entreprises et la restauration. Nous comprenons les enjeux specifiques du commerce merignacais et de la zone aeroportuaire.`,
+    question: `Quels secteurs accompagnez-vous à ${localInfo.city} ?`,
+    answer: `Nous accompagnons tous les secteurs d'activité à ${localInfo.city}, avec une expertise particulière dans le commerce de détail, la logistique, les services aux entreprises et la restauration. Nous comprenons les enjeux spécifiques du commerce mérignacais et de la zone aéroportuaire.`,
   },
 ]
 
@@ -107,7 +107,7 @@ export default function PrestashopMerignacPage() {
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
             name: `Agence PrestaShop ${localInfo.city} - Bluewave`,
-            description: `Creation de boutiques PrestaShop a ${localInfo.city}. Expert e-commerce en ${localInfo.region}.`,
+            description: `Création de boutiques PrestaShop à ${localInfo.city}. Expert e-commerce en ${localInfo.region}.`,
             url: `https://bluewave.fr/services/prestashop/${localInfo.city.toLowerCase()}`,
             telephone: '+33 5 XX XX XX XX',
             address: {
@@ -154,15 +154,15 @@ export default function PrestashopMerignacPage() {
               {localInfo.city}
             </h1>
             <p className="text-xl text-dark-300 leading-relaxed mb-8">
-              Creation de boutiques e-commerce PrestaShop a {localInfo.city}, {localInfo.description}.
-              Nous accompagnons les commercants et entreprises de la metropole bordelaise dans leur transformation digitale.
+              Création de boutiques e-commerce PrestaShop à {localInfo.city}, {localInfo.description}.
+              Nous accompagnons les commerçants et entreprises de la métropole bordelaise dans leur transformation digitale.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" className="btn-primary bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700">
                 Devis gratuit sous 48h
               </Link>
               <Link href="/realisations" className="btn-secondary">
-                Nos realisations
+                Nos réalisations
               </Link>
             </div>
           </motion.div>
@@ -202,7 +202,7 @@ export default function PrestashopMerignacPage() {
               viewport={{ once: true }}
             >
               <h2 className="heading-lg text-white mb-6">
-                Le e-commerce a{' '}
+                Le e-commerce à{' '}
                 <span className="text-pink-400">{localInfo.city}</span>
               </h2>
               <p className="text-dark-300 text-lg mb-6 leading-relaxed">
@@ -237,7 +237,7 @@ export default function PrestashopMerignacPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Intervention a {localInfo.city}</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">Intervention à {localInfo.city}</h3>
                   <p className="text-dark-400">et dans toute la {localInfo.region}</p>
                 </div>
                 <ul className="space-y-3">
@@ -245,7 +245,7 @@ export default function PrestashopMerignacPage() {
                     <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    Rendez-vous en presentiel
+                    Rendez-vous en présentiel
                   </li>
                   <li className="flex items-center gap-3 text-dark-300">
                     <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -257,13 +257,13 @@ export default function PrestashopMerignacPage() {
                     <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    Support reactif
+                    Support réactif
                   </li>
                   <li className="flex items-center gap-3 text-dark-300">
                     <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    Connaissance du marche local
+                    Connaissance du marché local
                   </li>
                 </ul>
               </div>
@@ -282,10 +282,10 @@ export default function PrestashopMerignacPage() {
             viewport={{ once: true }}
           >
             <h2 className="heading-lg text-white mb-4">
-              Nos services PrestaShop a {localInfo.city}
+              Nos services PrestaShop à {localInfo.city}
             </h2>
             <p className="text-dark-300 text-lg max-w-2xl mx-auto">
-              Un accompagnement complet pour les e-commercants de {localInfo.city} et sa region.
+              Un accompagnement complet pour les e-commerçants de {localInfo.city} et sa région.
             </p>
           </motion.div>
 
@@ -324,7 +324,7 @@ export default function PrestashopMerignacPage() {
             viewport={{ once: true }}
           >
             <h2 className="heading-lg text-white mb-4">
-              Questions frequentes - PrestaShop {localInfo.city}
+              Questions fréquentes - PrestaShop {localInfo.city}
             </h2>
           </motion.div>
 
@@ -363,7 +363,7 @@ export default function PrestashopMerignacPage() {
             viewport={{ once: true }}
           >
             <h2 className="heading-lg text-white mb-4">
-              Nous intervenons egalement
+              Nous intervenons également
             </h2>
           </motion.div>
 
@@ -396,10 +396,10 @@ export default function PrestashopMerignacPage() {
 
             <div className="relative z-10 px-8 py-16 md:px-16 md:py-24 text-center">
               <h2 className="heading-lg text-white mb-6">
-                Lancez votre boutique PrestaShop a {localInfo.city}
+                Lancez votre boutique PrestaShop à {localInfo.city}
               </h2>
               <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-                Discutons de votre projet e-commerce. Devis gratuit et personnalise sous 48h.
+                Discutons de votre projet e-commerce. Devis gratuit et personnalisé sous 48h.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link

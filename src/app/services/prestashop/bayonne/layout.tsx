@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Agence PrestaShop Bayonne - Creation Boutique E-commerce | Bluewave',
-  description: 'Expert PrestaShop a Bayonne. Creation de boutiques e-commerce sur mesure, developpement de modules et accompagnement pour les commercants des Pyrenees-Atlantiques. Devis gratuit.',
-  keywords: 'prestashop bayonne, agence prestashop bayonne, creation boutique prestashop bayonne, developpeur prestashop bayonne, e-commerce bayonne, pays basque',
+  title: 'Agence PrestaShop Bayonne - Création Boutique E-commerce | Bluewave',
+  description: 'Expert PrestaShop à Bayonne. Création de boutiques e-commerce sur mesure, développement de modules et accompagnement pour les commerçants des Pyrénées-Atlantiques. Devis gratuit.',
+  keywords: 'prestashop bayonne, agence prestashop bayonne, création boutique prestashop bayonne, développeur prestashop bayonne, e-commerce bayonne, pays basque',
   openGraph: {
-    title: 'Agence PrestaShop Bayonne - Creation Boutique E-commerce',
-    description: 'Expert PrestaShop a Bayonne. Creation de boutiques e-commerce sur mesure pour les commercants des Pyrenees-Atlantiques.',
+    title: 'Agence PrestaShop Bayonne - Création Boutique E-commerce',
+    description: 'Expert PrestaShop à Bayonne. Création de boutiques e-commerce sur mesure pour les commerçants des Pyrénées-Atlantiques.',
     url: 'https://bluewave.fr/services/prestashop/bayonne',
     siteName: 'Bluewave',
     locale: 'fr_FR',

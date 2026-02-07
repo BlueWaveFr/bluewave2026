@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Agence PrestaShop Arcachon - Creation Boutique E-commerce | Bluewave',
-  description: 'Expert PrestaShop a Arcachon. Creation de boutiques e-commerce sur mesure, developpement de modules et accompagnement pour les commercants du Bassin d\'Arcachon. Devis gratuit.',
-  keywords: 'prestashop arcachon, agence prestashop arcachon, creation boutique prestashop arcachon, developpeur prestashop arcachon, e-commerce arcachon, bassin arcachon',
+  title: 'Agence PrestaShop Arcachon - Création Boutique E-commerce | Bluewave',
+  description: 'Expert PrestaShop à Arcachon. Création de boutiques e-commerce sur mesure, développement de modules et accompagnement pour les commerçants du Bassin d\'Arcachon. Devis gratuit.',
+  keywords: 'prestashop arcachon, agence prestashop arcachon, création boutique prestashop arcachon, développeur prestashop arcachon, e-commerce arcachon, bassin arcachon',
   openGraph: {
-    title: 'Agence PrestaShop Arcachon - Creation Boutique E-commerce',
-    description: 'Expert PrestaShop a Arcachon. Creation de boutiques e-commerce sur mesure pour les commercants du Bassin d\'Arcachon.',
+    title: 'Agence PrestaShop Arcachon - Création Boutique E-commerce',
+    description: 'Expert PrestaShop à Arcachon. Création de boutiques e-commerce sur mesure pour les commerçants du Bassin d\'Arcachon.',
     url: 'https://bluewave.fr/services/prestashop/arcachon',
     siteName: 'Bluewave',
     locale: 'fr_FR',

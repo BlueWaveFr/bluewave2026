@@ -8,9 +8,9 @@ import { fadeInUp, staggerContainer, staggerItem, viewportOnce } from '@/lib/ani
 
 const services = [
   {
-    title: 'Developpement Web',
+    title: 'Développement Web',
     description: 'Applications web sur mesure, sites e-commerce et plateformes SaaS performantes.',
-    longDescription: 'De la conception a la mise en production, nous developpons des applications modernes avec React, Next.js et les dernieres technologies. Performance, accessibilite et SEO sont au coeur de chaque projet.',
+    longDescription: 'De la conception à la mise en production, nous développons des applications modernes avec React, Next.js et les dernières technologies. Performance, accessibilité et SEO sont au coeur de chaque projet.',
     features: ['Applications React & Next.js', 'E-commerce Prestashop', 'Plateformes SaaS', 'API & Integrations'],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
