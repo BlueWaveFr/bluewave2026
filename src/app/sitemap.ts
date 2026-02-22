@@ -38,6 +38,35 @@ async function getAllPosts(): Promise<WPContent[]> {
   }
 }
 
+async function getAllRealisations(): Promise<WPContent[]> {
+  try {
+    const res = await fetch(WORDPRESS_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+          query GetAllRealisationsForSitemap {
+            realisations(first: 100, where: { status: PUBLISH }) {
+              nodes {
+                slug
+                date
+                modified
+              }
+            }
+          }
+        `
+      }),
+      next: { revalidate: 3600 }
+    })
+
+    const json = await res.json()
+    return json.data?.realisations?.nodes || []
+  } catch (error) {
+    console.error('Error fetching realisations for sitemap:', error)
+    return []
+  }
+}
+
 async function getAllGuides(): Promise<WPContent[]> {
   try {
     const res = await fetch(WORDPRESS_API_URL, {
@@ -105,6 +134,56 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    // Audit sub-pages
+    {
+      url: `${SITE_URL}/services/audit/seo`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/audit/performance`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/audit/core-web-vitals`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    // Developpement sub-pages
+    {
+      url: `${SITE_URL}/services/developpement/react`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/developpement/saas`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/developpement/api`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/developpement/pwa`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/developpement/wordpress`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
     // PrestaShop pages - Pillar page
     {
@@ -242,6 +321,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    // Realisations
+    {
+      url: `${SITE_URL}/realisations`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
     {
       url: `${SITE_URL}/blog`,
       lastModified: new Date(),
@@ -299,9 +385,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // Dynamic content from WordPress
-  const [posts, guides] = await Promise.all([
+  const [posts, guides, realisations] = await Promise.all([
     getAllPosts(),
-    getAllGuides()
+    getAllGuides(),
+    getAllRealisations()
   ])
 
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
@@ -318,5 +405,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
-  return [...staticPages, ...blogPages, ...guidePages]
+  const realisationPages: MetadataRoute.Sitemap = realisations.map((realisation) => ({
+    url: `${SITE_URL}/realisations/${realisation.slug}`,
+    lastModified: new Date(realisation.modified || realisation.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...blogPages, ...guidePages, ...realisationPages]
 }

@@ -365,7 +365,7 @@ function SaaSVisual() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + i * 0.1 }}
               >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-500/30 to-purple-500/30 border border-accent-500/30 flex items-center justify-center text-accent-400 font-bold">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400/30 to-amber-500/30 border border-yellow-400/30 flex items-center justify-center text-yellow-400 font-bold">
                   {user.name.charAt(0)}
                 </div>
                 <div className="flex-1">
@@ -395,7 +395,7 @@ function SaaSVisual() {
             {[30, 45, 25, 60, 40, 55, 35, 70, 45, 50].map((h, i) => (
               <motion.div
                 key={i}
-                className="w-2 bg-gradient-to-t from-purple-500/60 to-accent-500/40 rounded"
+                className="w-2 bg-gradient-to-t from-amber-500/60 to-yellow-400/40 rounded"
                 initial={{ height: 0 }}
                 whileInView={{ height: h }}
                 viewport={{ once: true }}
@@ -584,7 +584,7 @@ function PWAVisual() {
               transition={{ delay: 0.3 }}
             >
               <motion.div
-                className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-500 to-cyan-500 flex items-center justify-center shadow-lg"
+                className="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center shadow-lg"
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
@@ -613,8 +613,8 @@ function PWAVisual() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + i * 0.1 }}
                 >
-                  <div className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 rounded-lg bg-yellow-400/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
@@ -628,7 +628,7 @@ function PWAVisual() {
 
             {/* Install prompt */}
             <motion.div
-              className="p-4 bg-gradient-to-r from-accent-500/20 to-cyan-500/20 border border-accent-500/30 rounded-2xl"
+              className="p-4 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 border border-yellow-400/30 rounded-2xl"
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -638,7 +638,7 @@ function PWAVisual() {
               <p className="text-dark-400 text-xs mb-3">Ajoutez a votre ecran d'accueil</p>
               <div className="flex gap-2">
                 <motion.button
-                  className="flex-1 py-2 bg-accent-500 text-white text-xs font-medium rounded-lg"
+                  className="flex-1 py-2 bg-amber-500 text-white text-xs font-medium rounded-lg"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -680,8 +680,8 @@ function PWAVisual() {
       </motion.div>
 
       {/* Glow effects */}
-      <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent-500/20 rounded-full blur-3xl" />
-      <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-500/20 rounded-full blur-3xl" />
+      <div className="absolute -top-10 -right-10 w-40 h-40 bg-yellow-400/20 rounded-full blur-3xl" />
+      <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500/20 rounded-full blur-3xl" />
     </div>
   )
 }
@@ -849,7 +849,7 @@ export default function DeveloppementPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-500 to-accent-600 text-white flex items-center justify-center mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 text-white flex items-center justify-center mb-8">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
@@ -909,7 +909,7 @@ export default function DeveloppementPage() {
                 >
                   {/* Content */}
                   <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500/20 to-accent-600/20 border border-accent-500/30 text-accent-400 flex items-center justify-center mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 border border-yellow-400/30 text-yellow-400 flex items-center justify-center mb-6">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                       </svg>
@@ -923,7 +923,7 @@ export default function DeveloppementPage() {
                     <div className="flex flex-wrap items-center gap-4">
                       <Link
                         href="/contact"
-                        className="inline-flex items-center text-accent-400 hover:text-accent-300 font-medium group"
+                        className="inline-flex items-center text-yellow-400 hover:text-yellow-300 font-medium group"
                       >
                         Discuter de votre projet
                         <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -985,7 +985,7 @@ export default function DeveloppementPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.03 }}
-                className={`px-5 py-2.5 bg-dark-900/50 border border-dark-800/50 rounded-lg text-dark-300 text-sm font-medium hover:border-accent-500/30 hover:text-white transition-all duration-200 ${
+                className={`px-5 py-2.5 bg-dark-900/50 border border-dark-800/50 rounded-lg text-dark-300 text-sm font-medium hover:border-yellow-400/30 hover:text-white transition-all duration-200 ${
                   tech.name === 'Prestashop' ? 'border-pink-500/30 text-pink-400' : ''
                 }`}
               >
