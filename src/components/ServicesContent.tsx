@@ -20,7 +20,7 @@ const services = [
       </svg>
     ),
     href: '/services/developpement',
-    gradient: 'from-accent-500 to-accent-600',
+    gradient: 'from-yellow-400 to-amber-500',
   },
   {
     title: 'E-commerce PrestaShop',
@@ -76,7 +76,7 @@ const services = [
       </svg>
     ),
     href: '/services/debugging',
-    gradient: 'from-orange-500 to-red-500',
+    gradient: 'from-amber-500 to-orange-600',
   },
   {
     title: 'Consulting Technique',
@@ -94,7 +94,7 @@ const services = [
       </svg>
     ),
     href: '/services/consulting',
-    gradient: 'from-purple-500 to-pink-500',
+    gradient: 'from-violet-500 to-purple-600',
   },
   {
     title: 'Audit Technique & Logs',
