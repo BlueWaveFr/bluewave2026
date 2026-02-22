@@ -1,4 +1,7 @@
 import { Metadata } from 'next'
+import { localPrestashopSchemas } from '@/lib/schemas'
+
+const schemas = localPrestashopSchemas['merignac']
 
 export const metadata: Metadata = {
   title: 'Agence PrestaShop Mérignac - Création Boutique E-commerce | Bluewave',
@@ -18,5 +21,25 @@ export const metadata: Metadata = {
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return children
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.localBusiness) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.service) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.faq) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas.breadcrumb) }}
+      />
+      {children}
+    </>
+  )
 }

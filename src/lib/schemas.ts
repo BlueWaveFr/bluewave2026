@@ -330,6 +330,143 @@ export const devPwaSchemas = {
   ])
 }
 
+// =====================================================
+// SCHEMAS SEO LOCAL - PRESTASHOP VILLES
+// =====================================================
+
+interface LocalCityConfig {
+  city: string
+  slug: string
+  region: string
+  department: string
+  description: string
+  sectors: string[]
+}
+
+// Helper pour créer les schemas d'une page ville locale
+export function createLocalPrestashopSchemas(config: LocalCityConfig) {
+  const url = `https://bluewave.fr/services/prestashop/${config.slug}`
+
+  const localBusiness = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: `Agence PrestaShop ${config.city} - Bluewave`,
+    description: `Creation de boutiques PrestaShop a ${config.city}. Expert e-commerce Niveau 2 en ${config.region}.`,
+    url,
+    logo: 'https://bluewave.fr/images/logo-full.jpg',
+    image: 'https://bluewave.fr/og-image.jpg',
+    email: 'contact@bluewave.fr',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: config.city,
+      addressRegion: config.region,
+      addressCountry: 'FR',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: config.city,
+    },
+    priceRange: '€€€',
+    sameAs: [
+      'https://www.linkedin.com/company/bluewave-fr',
+      'https://github.com/BlueWaveFr'
+    ],
+  }
+
+  const service = createServiceSchema(
+    `Agence PrestaShop ${config.city}`,
+    `Expert PrestaShop Niveau 2 a ${config.city}. Creation de boutiques e-commerce, modules sur mesure et accompagnement pour les commercants de ${config.region}.`,
+    url,
+    'E-commerce Development',
+    [
+      { name: 'Creation boutique PrestaShop', description: `Developpement de boutiques e-commerce sur mesure a ${config.city}.` },
+      { name: 'Modules PrestaShop sur mesure', description: `Modules personnalises pour les commercants de ${config.city}.` },
+      { name: `SEO Local ${config.city}`, description: `Optimisation du referencement local a ${config.city} et en ${config.region}.` },
+      { name: 'Integration Click & Collect', description: `Solutions Click & Collect pour vos clients a ${config.city}.` },
+      { name: 'Formation PrestaShop', description: `Sessions de formation PrestaShop a ${config.city}.` },
+      { name: 'Maintenance & Support', description: `Support reactif pour les e-commercants de ${config.city}.` },
+    ]
+  )
+
+  const faq = createFAQSchema([
+    { question: `Pourquoi choisir une agence PrestaShop a ${config.city} ?`, answer: `Travailler avec une agence locale a ${config.city} vous permet de beneficier d'un accompagnement de proximite, de reunions en presentiel et d'une parfaite connaissance du tissu economique de ${config.region}.` },
+    { question: `Combien coute la creation d'une boutique PrestaShop a ${config.city} ?`, answer: `Les tarifs pour une boutique PrestaShop a ${config.city} demarrent a 3 000 EUR pour une boutique standard. Les projets sur mesure avec modules personnalises peuvent aller de 8 000 EUR a 25 000 EUR. Devis gratuit sous 48h.` },
+    { question: `Proposez-vous des rendez-vous en presentiel a ${config.city} ?`, answer: `Oui, nous nous deplacons regulierement a ${config.city} et dans toute la ${config.region}. Nous pouvons organiser des reunions dans vos locaux pour discuter de votre projet e-commerce.` },
+    { question: `Quels secteurs accompagnez-vous a ${config.city} ?`, answer: `Nous accompagnons tous les secteurs d'activite a ${config.city}, avec une expertise particuliere dans : ${config.sectors.join(', ')}.` },
+  ])
+
+  const breadcrumb = createBreadcrumbSchema([
+    { name: 'Accueil', url: 'https://bluewave.fr' },
+    { name: 'Services', url: 'https://bluewave.fr/services' },
+    { name: 'PrestaShop', url: 'https://bluewave.fr/services/prestashop' },
+    { name: config.city, url },
+  ])
+
+  return { localBusiness, service, faq, breadcrumb }
+}
+
+// Configurations des 10 villes
+export const localCities: Record<string, LocalCityConfig> = {
+  bordeaux: {
+    city: 'Bordeaux', slug: 'bordeaux', region: 'Gironde', department: '33',
+    description: 'capitale mondiale du vin et metropole dynamique du Sud-Ouest',
+    sectors: ['Negoce de vins', 'Gastronomie', 'Mode et pret-a-porter', 'Artisanat local', 'Tourisme'],
+  },
+  merignac: {
+    city: 'Merignac', slug: 'merignac', region: 'Gironde', department: '33',
+    description: 'deuxieme ville de Gironde et pole economique de la metropole bordelaise',
+    sectors: ['Aeronautique', 'Commerce de proximite', 'Services aux entreprises', 'Artisanat', 'Restauration'],
+  },
+  pessac: {
+    city: 'Pessac', slug: 'pessac', region: 'Gironde', department: '33',
+    description: 'ville universitaire et viticole aux portes de Bordeaux',
+    sectors: ['Viticulture', 'Commerce de proximite', 'Education', 'Artisanat', 'Services'],
+  },
+  libourne: {
+    city: 'Libourne', slug: 'libourne', region: 'Gironde', department: '33',
+    description: 'capitale du Libournais et porte d\'entree de Saint-Emilion',
+    sectors: ['Viticulture et negoce', 'Tourisme oenotouristique', 'Commerce de centre-ville', 'Artisanat', 'Gastronomie'],
+  },
+  arcachon: {
+    city: 'Arcachon', slug: 'arcachon', region: 'Gironde', department: '33',
+    description: 'station balneaire prestigieuse du Bassin d\'Arcachon',
+    sectors: ['Tourisme et hotellerie', 'Ostreiculture', 'Immobilier de luxe', 'Nautisme', 'Gastronomie'],
+  },
+  cognac: {
+    city: 'Cognac', slug: 'cognac', region: 'Charente', department: '16',
+    description: 'capitale mondiale du cognac et ville d\'art et d\'histoire',
+    sectors: ['Maisons de cognac', 'Viticulture', 'Tourisme', 'Gastronomie', 'Artisanat de luxe'],
+  },
+  bayonne: {
+    city: 'Bayonne', slug: 'bayonne', region: 'Pays Basque', department: '64',
+    description: 'capitale du Pays Basque et ville de tradition commercante',
+    sectors: ['Chocolaterie', 'Gastronomie basque', 'Artisanat', 'Tourisme', 'Commerce de centre-ville'],
+  },
+  biarritz: {
+    city: 'Biarritz', slug: 'biarritz', region: 'Pays Basque', department: '64',
+    description: 'station balneaire de renommee internationale et capitale du surf',
+    sectors: ['Tourisme et hotellerie', 'Surf et sports nautiques', 'Mode et luxe', 'Bien-etre et spa', 'Gastronomie'],
+  },
+  anglet: {
+    city: 'Anglet', slug: 'anglet', region: 'Pays Basque', department: '64',
+    description: 'ville dynamique entre ocean et forets au coeur du BAB',
+    sectors: ['Commerce de proximite', 'Surf et loisirs', 'Restauration', 'Artisanat', 'Services'],
+  },
+  pau: {
+    city: 'Pau', slug: 'pau', region: 'Bearn', department: '64',
+    description: 'prefecture des Pyrenees-Atlantiques et ville royale au pied des Pyrenees',
+    sectors: ['Commerce de centre-ville', 'Tourisme pyreneeen', 'Gastronomie bearnaise', 'Artisanat', 'Services aux entreprises'],
+  },
+}
+
+// Génération automatique des schemas pour chaque ville
+export const localPrestashopSchemas = Object.fromEntries(
+  Object.entries(localCities).map(([slug, config]) => [
+    slug,
+    createLocalPrestashopSchemas(config)
+  ])
+)
+
 // Developpement SaaS
 export const devSaasSchemas = {
   service: createServiceSchema(

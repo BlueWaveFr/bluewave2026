@@ -497,6 +497,65 @@ export default function PrestashopPage() {
         </div>
       </section>
 
+      {/* Zones d'intervention */}
+      <section className="section-padding border-t border-dark-800/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="heading-lg text-white mb-4">
+              Agence PrestaShop près de chez vous
+            </h2>
+            <p className="text-dark-300 text-lg max-w-2xl mx-auto">
+              Nous intervenons dans tout le Sud-Ouest de la France. Rencontrons-nous pour discuter de votre projet e-commerce.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { city: 'Bordeaux', region: 'Gironde', slug: 'bordeaux', description: 'Métropole bordelaise et capitale du vin' },
+              { city: 'Mérignac', region: 'Gironde', slug: 'merignac', description: 'Pôle économique et zone aéroportuaire' },
+              { city: 'Pessac', region: 'Gironde', slug: 'pessac', description: 'Ville universitaire et viticole' },
+              { city: 'Libourne', region: 'Gironde', slug: 'libourne', description: 'Capitale du Libournais et Saint-Émilion' },
+              { city: 'Arcachon', region: 'Gironde', slug: 'arcachon', description: 'Bassin d\'Arcachon et station balnéaire' },
+              { city: 'Cognac', region: 'Charente', slug: 'cognac', description: 'Capitale mondiale du cognac' },
+              { city: 'Bayonne', region: 'Pays Basque', slug: 'bayonne', description: 'Capitale du Pays Basque' },
+              { city: 'Biarritz', region: 'Pays Basque', slug: 'biarritz', description: 'Station balnéaire et capitale du surf' },
+              { city: 'Anglet', region: 'Pays Basque', slug: 'anglet', description: 'Entre océan et forêts au cœur du BAB' },
+              { city: 'Pau', region: 'Béarn', slug: 'pau', description: 'Ville royale au pied des Pyrénées' },
+            ].map((item, index) => (
+              <motion.div
+                key={item.slug}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <Link
+                  href={`/services/prestashop/${item.slug}`}
+                  className="block p-5 bg-dark-900/50 rounded-xl border border-dark-800/50 hover:border-pink-500/30 transition-all group"
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-white font-semibold group-hover:text-pink-400 transition-colors">
+                      PrestaShop {item.city}
+                    </h3>
+                    <span className="text-dark-500 text-xs bg-dark-800/50 px-2 py-1 rounded">
+                      {item.region}
+                    </span>
+                  </div>
+                  <p className="text-dark-400 text-sm">
+                    {item.description}
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

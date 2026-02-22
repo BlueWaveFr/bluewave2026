@@ -99,33 +99,6 @@ const faqs = [
 export default function PrestashopLibournePage() {
   return (
     <main className="pt-20">
-      {/* Schema.org LocalBusiness */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            name: `Agence PrestaShop ${localInfo.city} - Bluewave`,
-            description: `Création de boutiques PrestaShop à ${localInfo.city}. Expert e-commerce en ${localInfo.region}.`,
-            url: `https://bluewave.fr/services/prestashop/${localInfo.city.toLowerCase()}`,
-            telephone: '+33 5 XX XX XX XX',
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: localInfo.city,
-              addressRegion: localInfo.region,
-              postalCode: localInfo.department + '500',
-              addressCountry: 'FR',
-            },
-            areaServed: {
-              '@type': 'City',
-              name: localInfo.city,
-            },
-            priceRange: '€€€',
-          }),
-        }}
-      />
-
       {/* Hero */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
