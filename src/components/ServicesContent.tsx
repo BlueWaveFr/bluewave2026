@@ -42,6 +42,25 @@ const services = [
     badge: 'Expert Niveau 2',
   },
   {
+    title: 'Sites WordPress',
+    description: 'Creation de sites vitrines, blogs et portails sur mesure avec WordPress. Developpement de plugins, migration, optimisation et maintenance.',
+    features: [
+      'Sites vitrines WordPress sur mesure',
+      'Plugins et extensions personnalises',
+      'Migration vers WordPress',
+      'WordPress Headless (Next.js)',
+      'Maintenance et support',
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
+    href: '/services/wordpress',
+    gradient: 'from-[#21759b] to-[#1a5f80]',
+    badge: 'CMS #1 mondial',
+  },
+  {
     title: 'Debugging & Optimisation',
     description: 'Resolution de bugs complexes et optimisation des performances. Notre expertise technique vous aide a maintenir des applications stables et rapides.',
     features: [

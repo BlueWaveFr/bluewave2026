@@ -467,6 +467,174 @@ export const localPrestashopSchemas = Object.fromEntries(
   ])
 )
 
+// WordPress
+export const wordpressSchemas = {
+  service: createServiceSchema(
+    'Création Site WordPress',
+    'Agence WordPress experte. Création de sites vitrines, blogs et portails sur mesure. Développement de plugins, migration et maintenance.',
+    'https://bluewave.fr/services/wordpress',
+    'Web Development',
+    [
+      { name: 'Création de site vitrine WordPress', description: 'Sites vitrines professionnels, responsive et optimisés SEO avec WordPress.' },
+      { name: 'Développement de plugins WordPress', description: 'Plugins sur mesure pour étendre les fonctionnalités de votre site.' },
+      { name: 'Migration vers WordPress', description: 'Migration depuis Wix, Squarespace, Joomla, Drupal ou tout autre CMS.' },
+      { name: 'Optimisation & Performance', description: 'Amélioration des temps de chargement, SEO technique, Core Web Vitals.' },
+      { name: 'WordPress Headless', description: 'Architecture découplée avec Next.js pour des performances maximales.' },
+      { name: 'Maintenance & Support', description: 'Mises à jour, sécurité, sauvegardes et support réactif.' }
+    ]
+  ),
+  faq: createFAQSchema([
+    { question: 'Combien coûte la création d\'un site WordPress ?', answer: 'Le coût varie selon la complexité. Un site vitrine standard démarre à 2 000 EUR, un site sur mesure avec fonctionnalités avancées peut aller de 5 000 EUR à 20 000 EUR. Devis gratuit après étude de vos besoins.' },
+    { question: 'Quelle est la durée de création d\'un site WordPress ?', answer: 'Un site vitrine standard peut être livré en 3 à 4 semaines. Les projets plus complexes avec des fonctionnalités sur mesure nécessitent généralement 2 à 3 mois de développement.' },
+    { question: 'WordPress ou PrestaShop, que choisir ?', answer: 'WordPress est idéal pour les sites vitrines, blogs, portails et sites institutionnels. PrestaShop est plus adapté pour les boutiques e-commerce dédiées avec un catalogue important. Nous vous conseillons selon votre projet.' },
+    { question: 'Proposez-vous la maintenance après livraison ?', answer: 'Oui, nous proposons des contrats de maintenance incluant les mises à jour WordPress et plugins, la surveillance de sécurité, les sauvegardes automatiques et un support prioritaire à partir de 150 EUR/mois.' },
+    { question: 'Pouvez-vous migrer mon site existant vers WordPress ?', answer: 'Oui, nous réalisons des migrations depuis Wix, Squarespace, Joomla, Drupal et autres CMS. Nous préservons votre contenu, vos médias et votre référencement existant.' },
+    { question: 'Qu\'est-ce que WordPress Headless ?', answer: 'WordPress Headless utilise WordPress comme CMS pour gérer le contenu, avec un frontend moderne (Next.js) pour l\'affichage. Résultat : des performances exceptionnelles tout en gardant la facilité de gestion de WordPress.' }
+  ]),
+  breadcrumb: createBreadcrumbSchema([
+    { name: 'Accueil', url: 'https://bluewave.fr' },
+    { name: 'Services', url: 'https://bluewave.fr/services' },
+    { name: 'WordPress', url: 'https://bluewave.fr/services/wordpress' }
+  ])
+}
+
+// =====================================================
+// SCHEMAS SEO LOCAL - WORDPRESS VILLES
+// =====================================================
+
+interface LocalWordpressCityConfig {
+  city: string
+  slug: string
+  region: string
+  department: string
+  description: string
+  sectors: string[]
+}
+
+// Helper pour créer les schemas d'une page ville locale WordPress
+export function createLocalWordpressSchemas(config: LocalWordpressCityConfig) {
+  const url = `https://bluewave.fr/services/wordpress/${config.slug}`
+
+  const localBusiness = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: `Agence WordPress ${config.city} - Bluewave`,
+    description: `Création de sites WordPress à ${config.city}. Expert web en ${config.region}.`,
+    url,
+    logo: 'https://bluewave.fr/images/logo-full.jpg',
+    image: 'https://bluewave.fr/og-image.jpg',
+    email: 'contact@bluewave.fr',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: config.city,
+      addressRegion: config.region,
+      addressCountry: 'FR',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: config.city,
+    },
+    priceRange: '€€€',
+    sameAs: [
+      'https://www.linkedin.com/company/bluewave-fr',
+      'https://github.com/BlueWaveFr'
+    ],
+  }
+
+  const service = createServiceSchema(
+    `Agence WordPress ${config.city}`,
+    `Expert WordPress à ${config.city}. Création de sites vitrines, blogs et portails sur mesure pour les entreprises de ${config.region}.`,
+    url,
+    'Web Development',
+    [
+      { name: 'Création site vitrine WordPress', description: `Sites vitrines professionnels sur mesure à ${config.city}.` },
+      { name: 'Plugins WordPress sur mesure', description: `Développement de plugins personnalisés pour les entreprises de ${config.city}.` },
+      { name: `SEO Local ${config.city}`, description: `Optimisation du référencement local à ${config.city} et en ${config.region}.` },
+      { name: 'WordPress Headless', description: `Architecture moderne et performante pour les entreprises de ${config.city}.` },
+      { name: 'Formation WordPress', description: `Sessions de formation WordPress à ${config.city}.` },
+      { name: 'Maintenance & Support', description: `Support réactif pour les sites WordPress de ${config.city}.` },
+    ]
+  )
+
+  const faq = createFAQSchema([
+    { question: `Pourquoi choisir une agence WordPress à ${config.city} ?`, answer: `Travailler avec une agence locale à ${config.city} vous permet de bénéficier d'un accompagnement de proximité, de réunions en présentiel et d'une parfaite connaissance du tissu économique de ${config.region}.` },
+    { question: `Combien coûte la création d'un site WordPress à ${config.city} ?`, answer: `Les tarifs pour un site WordPress à ${config.city} démarrent à 2 000 EUR pour un site vitrine standard. Les projets sur mesure avec fonctionnalités avancées peuvent aller de 5 000 EUR à 20 000 EUR. Devis gratuit sous 48h.` },
+    { question: `Proposez-vous des rendez-vous en présentiel à ${config.city} ?`, answer: `Oui, nous nous déplaçons régulièrement à ${config.city} et dans toute la ${config.region}. Nous pouvons organiser des réunions dans vos locaux pour discuter de votre projet web.` },
+    { question: `Quels types de sites réalisez-vous à ${config.city} ?`, answer: `Nous réalisons tous types de sites WordPress à ${config.city} : sites vitrines, blogs, portails, sites institutionnels, WordPress Headless avec Next.js, avec une expertise particulière pour : ${config.sectors.join(', ')}.` },
+  ])
+
+  const breadcrumb = createBreadcrumbSchema([
+    { name: 'Accueil', url: 'https://bluewave.fr' },
+    { name: 'Services', url: 'https://bluewave.fr/services' },
+    { name: 'WordPress', url: 'https://bluewave.fr/services/wordpress' },
+    { name: config.city, url },
+  ])
+
+  return { localBusiness, service, faq, breadcrumb }
+}
+
+// Configurations des 10 villes WordPress (same cities as PrestaShop)
+export const localWordpressCities: Record<string, LocalWordpressCityConfig> = {
+  bordeaux: {
+    city: 'Bordeaux', slug: 'bordeaux', region: 'Gironde', department: '33',
+    description: 'capitale mondiale du vin et métropole dynamique du Sud-Ouest',
+    sectors: ['Négoce de vins', 'Gastronomie', 'Tourisme', 'Immobilier', 'Services aux entreprises'],
+  },
+  merignac: {
+    city: 'Mérignac', slug: 'merignac', region: 'Gironde', department: '33',
+    description: 'deuxième ville de Gironde et pôle économique de la métropole bordelaise',
+    sectors: ['Aéronautique', 'Commerce de proximité', 'Services aux entreprises', 'Santé', 'Restauration'],
+  },
+  pessac: {
+    city: 'Pessac', slug: 'pessac', region: 'Gironde', department: '33',
+    description: 'ville universitaire et viticole aux portes de Bordeaux',
+    sectors: ['Viticulture', 'Éducation', 'Commerce de proximité', 'Artisanat', 'Services'],
+  },
+  libourne: {
+    city: 'Libourne', slug: 'libourne', region: 'Gironde', department: '33',
+    description: 'capitale du Libournais et porte d\'entrée de Saint-Émilion',
+    sectors: ['Viticulture et négoce', 'Tourisme œnotouristique', 'Commerce de centre-ville', 'Artisanat', 'Gastronomie'],
+  },
+  arcachon: {
+    city: 'Arcachon', slug: 'arcachon', region: 'Gironde', department: '33',
+    description: 'station balnéaire prestigieuse du Bassin d\'Arcachon',
+    sectors: ['Tourisme et hôtellerie', 'Ostréiculture', 'Immobilier', 'Nautisme', 'Gastronomie'],
+  },
+  cognac: {
+    city: 'Cognac', slug: 'cognac', region: 'Charente', department: '16',
+    description: 'capitale mondiale du cognac et ville d\'art et d\'histoire',
+    sectors: ['Maisons de cognac', 'Viticulture', 'Tourisme', 'Gastronomie', 'Artisanat de luxe'],
+  },
+  bayonne: {
+    city: 'Bayonne', slug: 'bayonne', region: 'Pays Basque', department: '64',
+    description: 'capitale du Pays Basque et ville de tradition commerçante',
+    sectors: ['Chocolaterie', 'Gastronomie basque', 'Artisanat', 'Tourisme', 'Commerce de centre-ville'],
+  },
+  biarritz: {
+    city: 'Biarritz', slug: 'biarritz', region: 'Pays Basque', department: '64',
+    description: 'station balnéaire de renommée internationale et capitale du surf',
+    sectors: ['Tourisme et hôtellerie', 'Surf et sports nautiques', 'Bien-être et spa', 'Mode et luxe', 'Gastronomie'],
+  },
+  anglet: {
+    city: 'Anglet', slug: 'anglet', region: 'Pays Basque', department: '64',
+    description: 'ville dynamique entre océan et forêts au cœur du BAB',
+    sectors: ['Commerce de proximité', 'Surf et loisirs', 'Restauration', 'Artisanat', 'Services'],
+  },
+  pau: {
+    city: 'Pau', slug: 'pau', region: 'Béarn', department: '64',
+    description: 'préfecture des Pyrénées-Atlantiques et ville royale au pied des Pyrénées',
+    sectors: ['Commerce de centre-ville', 'Tourisme pyrénéen', 'Gastronomie béarnaise', 'Artisanat', 'Services aux entreprises'],
+  },
+}
+
+// Génération automatique des schemas pour chaque ville WordPress
+export const localWordpressSchemas = Object.fromEntries(
+  Object.entries(localWordpressCities).map(([slug, config]) => [
+    slug,
+    createLocalWordpressSchemas(config)
+  ])
+)
+
 // Developpement SaaS
 export const devSaasSchemas = {
   service: createServiceSchema(
